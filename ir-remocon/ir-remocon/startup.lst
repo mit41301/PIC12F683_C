@@ -1,0 +1,190 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL5 build 3884 
+                                                      Tue Oct 20 10:29:57 2009
+
+
+     1                           
+     2                           	; HI-TECH C PRO for the PIC10/12/16 MCU family
+                                  V9.60PL5
+     3                           	; Copyright (C) 1984-2009 HI-TECH Software
+     4                           
+     5                           	; Auto-generated runtime startup code for fina
+                                 l link stage.
+     6                           
+     7                           	;
+     8                           	; Compiler options:
+     9                           	;
+    10                           	; -oir-remocon.cof -mir-remocon.map --summary=
+                                 default --output=default \
+    11                           	; ir-remocon.p1 scif_tx.p1 ir.p1 --chip=12F683
+                                  -P --runtime=default \
+    12                           	; --opt=default -g --asmlist --errformat=Error
+                                    [%n] %f; %l.%c %s \
+    13                           	; --msgformat=Advisory[%n] %s --warnformat=War
+                                 ning [%n] %f; %l.%c %s
+    14                           	;
+    15                           
+    16                           
+    17                           	processor	12F683
+    18                           
+    19                           	global	_main,start,_exit,reset_vec
+    20                           	fnroot	_main
+    21                           	psect	config,class=CONFIG,delta=2
+    22                           	psect	idloc,class=IDLOC,delta=2
+    23                           	psect	rbss_0,class=BANK0,space=1
+    24                           	psect	rbss_1,class=BANK1,space=1
+    25                           	psect	rbss_2,class=BANK2,space=1
+    26                           	psect	rbss_3,class=BANK3,space=1
+    27                           	psect	rdata_0,class=BANK0,space=1
+    28                           	psect	rdata_1,class=BANK1,space=1
+    29                           	psect	rdata_2,class=BANK2,space=1
+    30                           	psect	rdata_3,class=BANK3,space=1
+    31                           	psect	nvram,class=BANK0,space=1
+    32                           	psect	nvram_1,class=BANK1,space=1
+    33                           	psect	nvram_2,class=BANK2,space=1
+    34                           	psect	nvram_3,class=BANK3,space=1
+    35                           	psect	nvbit_0,class=BANK0,bit,space=1
+    36                           	psect	nvbit_1,class=BANK1,bit,space=1
+    37                           	psect	nvbit_2,class=BANK2,bit,space=1
+    38                           	psect	nvbit_3,class=BANK3,bit,space=1
+    39                           	psect	temp,ovrld,class=BANK0,space=1
+    40                           	psect	struct,ovrld,class=BANK0,space=1
+    41                           	psect	code,class=CODE,delta=2
+    42                           	psect	rbit_0,class=BANK0,bit,space=1
+    43                           	psect	ptbit_0,class=BANK0,bit,space=1
+    44                           	psect	rbit_1,class=BANK1,bit,space=1
+    45                           	psect	rbit_2,class=BANK2,bit,space=1
+    46                           	psect	rbit_3,class=BANK3,bit,space=1
+    47                           	psect	pstrings,class=CODE,delta=2
+    48                           	psect	powerup,class=CODE,delta=2
+    49                           	psect	reset_vec,class=CODE,delta=2
+    50                           	psect	maintext,class=CODE,delta=2
+    51  0000                     	C	set	0
+    52  0000                     	Z	set	2
+    53  0000                     	PCL	set	2
+    54  0000                     	INDF	set	0
+    55                           
+    56                           	psect	fnautoc,class=COMMON,space=1
+    57                           	psect	common,class=COMMON,space=1
+    58                           	psect	fnauto0,class=BANK0,space=1
+    59                           	psect	fnauto1,class=BANK1,space=1
+    60  0000                     	STATUS	equ	3
+    61  0000                     	PCLATH	equ	0Ah
+    62                           
+    63                           	psect	eeprom_data,class=EEDATA,delta=2,space=2
+    64                           	psect	idata,class=CODE,delta=2
+    65                           	psect	idata_0,class=CODE,delta=2
+    66                           	psect	idata_1,class=CODE,delta=2
+    67                           	psect	idata_2,class=CODE,delta=2
+    68                           	psect	idata_3,class=CODE,delta=2
+    69                           	psect	intcode,class=CODE,delta=2
+    70                           	psect	intret,class=CODE,delta=2
+    71                           	psect	intentry,class=CODE,delta=2
+    72                           	global	intlevel0,intlevel1,intlevel2, intlevel
+                                 3, intlevel4, intlevel5
+    73  0004                     intlevel0:
+    74  0004                     intlevel1:
+    75  0004                     intlevel2:
+    76  0004                     intlevel3:
+    77  0004                     intlevel4:
+    78  0004                     intlevel5:
+    79                           	psect	intsave,class=BANK0,space=1
+    80                           	psect	intsave_1,class=BANK1,space=1
+    81                           	psect	intsave_2,class=BANK2,space=1
+    82                           	psect	intsave_3,class=BANK3,space=1
+    83                           	psect	init,class=CODE,delta=2
+    84                           	psect	init23,class=CODE,delta=2
+    85                           	psect	text,class=CODE,delta=2
+    86                           	psect	end_init,class=CODE,delta=2
+    87                           	psect	clrtext,class=CODE,delta=2
+    88                           	psect	float_text0,class=CODE,delta=2,size=2048
+    89                           	psect	float_text1,class=CODE,delta=2,size=2048
+    90                           	psect	float_text2,class=CODE,delta=2,size=2048
+    91                           	psect	float_text3,class=CODE,delta=2,size=2048
+    92                           	psect	float_text4,class=CODE,delta=2,size=2048
+    93  0000                     	FSR	set	4
+    94                           	psect	strings,class=CODE,delta=2,reloc=256
+    95                           
+    96                           	psect	reset_vec
+    97  0000                     reset_vec:
+    98                           	; No powerup routine
+    99                           	global start
+   100                           
+   101                           ; jump to start
+   102  0000  280F               	goto	start & 0x7FF | (reset_vec & not 0x7FF)
+   103                           
+   104                           
+   105                           
+   106                           	psect	init
+   107  000F                     start
+   108  000F                     _exit
+   109                           
+   110                           ;----------------------------------------------
+                                 ---------------------------------
+   111                           ;		Clear (zero) uninitialized global variables
+   112                           
+   113                           ;	17 bytes of RAM objects in bank 0 to zero
+   114                           
+   115                           	psect	init
+   116                           	global	__Lrbss_0
+   117  000F  3040               	movlw	low(__Lrbss_0)		;load the low address in
+                                 to FSR
+   118  0010  0084               	movwf	FSR
+   119  0011  3051               	movlw	low(__Lrbss_0+17)		;load the high addres
+                                 s+1 into W
+   120  0012  201A               	fcall	clear_ram		;go and zero that range of ad
+                                 dresses
+   121                           
+   122                           	psect	clrtext,class=CODE,delta=2
+   123                           	global	clear_ram
+   124                           ;	Called with FSR containing the base address, 
+                                 and
+   125                           ;	W with the last address+1
+   126  001A                     clear_ram:
+   127  001A  0064               	clrwdt			;clear the watchdog before getting in
+                                 to this loop
+   128  001B                     clrloop:
+   129  001B  0180               	clrf	INDF		;clear RAM location pointed to by F
+                                 SR
+   130  001C  0A84               	incf	FSR,f		;increment pointer to next locatio
+                                 n
+   131  001D  0604               	xorwf	FSR,w		;XOR with final address
+   132  001E  1903               	btfsc	STATUS,2	;have we reached the end yet?
+   133  001F  3400               	retlw	0		;all done for this bank, return
+   134  0020  0604               	xorwf	FSR,w		;XOR again to restore value
+   135  0021  281B               	goto	clrloop		;go and do the next byte
+   136                           
+   137                           ;	No RAM objects to clear in bank 1
+   138                           ;	No RAM objects to clear in bank 2
+   139                           ;	No RAM objects to clear in bank 3
+   140                           ;	14 bytes of RAM objects in common bank to zer
+                                 o
+   141                           
+   142                           	psect	init
+   143  0013  1783               	bsf	STATUS,7		;select indirect bank 2/3
+   144                           	global	__Lcommon
+   145  0014  3070               	movlw	low(__Lcommon)		;load the low address in
+                                 to FSR
+   146  0015  0084               	movwf	FSR
+   147  0016  307E               	movlw	low(__Lcommon+14)		;load the high addres
+                                 s+1 into W
+   148  0017  201A               	fcall	clear_ram		;go and zero that range of ad
+                                 dresses
+   149                           
+   150                           
+   151                           ;----------------------------------------------
+                                 ---------------------------------
+   152                           	psect	end_init
+   153  0018  0183               	clrf	STATUS
+   154  0019  2822               	ljmp _main
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL5 build 3884 
+Symbol Table                                          Tue Oct 20 10:29:57 2009
+
+  __Lrbss_0 0040          FSR 0004         INDF 0000        _main 0022  
+      _exit 000F        start 000F    clear_ram 001A       STATUS 0003  
+  intlevel0 0004    intlevel1 0004    intlevel2 0004    intlevel3 0004  
+  intlevel4 0004    intlevel5 0004    reset_vec 0000      clrloop 001B  
+  __Lcommon 0070  

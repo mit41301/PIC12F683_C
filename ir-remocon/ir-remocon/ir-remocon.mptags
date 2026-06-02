@@ -1,0 +1,75 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+F683	C:\pic\ir-remocon\ir-remocon.c	22;"	v	line:22
+IESODIS	C:\pic\ir-remocon\ir-remocon.c	19;"	v	line:19
+IR_IN::GPIO0	C:\pic\ir-remocon\ir.c	10;"	d	line:10	file:
+IR_MAX::16	C:\pic\ir-remocon\ir.c	12;"	d	line:12	file:
+IR_OUT::GPIO4	C:\pic\ir-remocon\ir.c	11;"	d	line:11	file:
+LED::GPIO5	C:\pic\ir-remocon\ir-remocon.c	26;"	d	line:26	file:
+SCIF_TX_BN::11	C:\pic\ir-remocon\scif_tx.c	11;"	d	line:11	file:
+SCIF_TX_OUT::GPIO1	C:\pic\ir-remocon\scif_tx.c	9;"	d	line:9	file:
+SCIF_TX_TM::206	C:\pic\ir-remocon\scif_tx.c	10;"	d	line:10	file:
+SWTCH::GPIO2	C:\pic\ir-remocon\ir-remocon.c	25;"	d	line:25	file:
+_XTAL_FREQ::8000000	C:\pic\ir-remocon\ir-remocon.c	24;"	d	line:24	file:
+_XTAL_FREQ::8000000	C:\pic\ir-remocon\ir.c	9;"	d	line:9	file:
+b	C:\pic\ir-remocon\ir.c	101;"	l	line:101
+b	C:\pic\ir-remocon\ir.c	78;"	l	line:78
+buf	C:\pic\ir-remocon\scif_tx.c	53;"	l	line:53
+deb_dat	C:\pic\ir-remocon\scif_tx.c	77;"	f	line:77	signature:(unsigned int d, unsigned char h)
+deb_dat	C:\pic\ir-remocon\scif_tx.h	8;"	p	line:8	signature:(unsigned int, unsigned char)
+deb_sig	C:\pic\ir-remocon\scif_tx.c	70;"	f	line:70	signature:(const unsigned char *s, unsigned int d)
+deb_sig	C:\pic\ir-remocon\scif_tx.h	7;"	p	line:7	signature:(const unsigned char *, unsigned int)
+entry	C:\pic\ir-remocon\ir-remocon.c	28;"	f	line:28	signature:(void)
+hc	C:\pic\ir-remocon\scif_tx.c	39;"	l	line:39
+hl	C:\pic\ir-remocon\ir.c	23;"	v	line:23
+hs	C:\pic\ir-remocon\ir.c	23;"	v	line:23
+i	C:\pic\ir-remocon\ir-remocon.c	34;"	l	line:34
+i	C:\pic\ir-remocon\ir.c	101;"	l	line:101
+i	C:\pic\ir-remocon\ir.c	38;"	l	line:38
+i	C:\pic\ir-remocon\ir.c	51;"	l	line:51
+i	C:\pic\ir-remocon\ir.c	77;"	l	line:77
+i	C:\pic\ir-remocon\scif_tx.c	52;"	l	line:52
+ir_analize	C:\pic\ir-remocon\ir.c	100;"	f	line:100	signature:(void)
+ir_analize	C:\pic\ir-remocon\ir.h	16;"	p	line:16	signature:(void)
+ir_control	C:\pic\ir-remocon\ir.c	76;"	f	line:76	signature:(void)
+ir_control	C:\pic\ir-remocon\ir.h	18;"	p	line:18	signature:(void)
+ir_init	C:\pic\ir-remocon\ir.c	26;"	f	line:26	signature:(void)
+ir_init	C:\pic\ir-remocon\ir.h	13;"	p	line:13	signature:(void)
+ir_ldrh	C:\pic\ir-remocon\ir.c	16;"	v	line:16
+ir_ldrl	C:\pic\ir-remocon\ir.c	17;"	v	line:17
+ir_load	C:\pic\ir-remocon\ir.c	50;"	f	line:50	signature:(void)
+ir_load	C:\pic\ir-remocon\ir.h	15;"	p	line:15	signature:(void)
+ir_save	C:\pic\ir-remocon\ir.c	37;"	f	line:37	signature:(void)
+ir_save	C:\pic\ir-remocon\ir.h	14;"	p	line:14	signature:(void)
+ir_scnt	C:\pic\ir-remocon\ir.c	15;"	v	line:15
+ir_shot	C:\pic\ir-remocon\ir.c	63;"	f	line:63	signature:(unsigned char t)
+ir_shot	C:\pic\ir-remocon\ir.h	17;"	p	line:17	signature:(unsigned char)
+ir_sig	C:\pic\ir-remocon\ir.c	14;"	v	line:14
+ir_sigh	C:\pic\ir-remocon\ir.c	19;"	v	line:19
+ir_sigl	C:\pic\ir-remocon\ir.c	20;"	v	line:20
+ir_turn	C:\pic\ir-remocon\ir.c	18;"	v	line:18
+ll	C:\pic\ir-remocon\ir.c	24;"	v	line:24
+ls	C:\pic\ir-remocon\ir.c	24;"	v	line:24
+main	C:\pic\ir-remocon\ir-remocon.c	33;"	f	line:33	signature:(void)
+putch	C:\pic\ir-remocon\scif_tx.c	25;"	f	line:25	signature:(unsigned char c)
+putch	C:\pic\ir-remocon\scif_tx.h	2;"	p	line:2	signature:(unsigned char)
+puthc	C:\pic\ir-remocon\scif_tx.c	38;"	f	line:38	signature:(unsigned char d)
+puthc	C:\pic\ir-remocon\scif_tx.h	4;"	p	line:4	signature:(unsigned char)
+puts	C:\pic\ir-remocon\scif_tx.c	66;"	f	line:66	signature:(const unsigned char *s)
+puts	C:\pic\ir-remocon\scif_tx.h	3;"	p	line:3	signature:(const unsigned char *)
+putui	C:\pic\ir-remocon\scif_tx.c	50;"	f	line:50	signature:(unsigned int ui, unsigned char d)
+putui	C:\pic\ir-remocon\scif_tx.h	5;"	p	line:5	signature:(unsigned int, unsigned char)
+scif_tx_bit	C:\pic\ir-remocon\scif_tx.c	13;"	v	line:13
+scif_tx_buf	C:\pic\ir-remocon\scif_tx.c	14;"	v	line:14
+scif_tx_init	C:\pic\ir-remocon\scif_tx.c	17;"	f	line:17	signature:(void)
+scif_tx_init	C:\pic\ir-remocon\scif_tx.h	1;"	p	line:1	signature:(void)
+scif_tx_next	C:\pic\ir-remocon\scif_tx.c	15;"	v	line:15
+sp	C:\pic\ir-remocon\ir.c	102;"	l	line:102
+tl	C:\pic\ir-remocon\ir.c	22;"	v	line:22
+ts	C:\pic\ir-remocon\ir.c	22;"	v	line:22
