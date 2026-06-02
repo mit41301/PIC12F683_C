@@ -1,0 +1,575 @@
+[p AUTOSTATIC PIC14 PICMIDHI PICLOMID LITE_MODE ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 12F683 ]
+"28 C:\pic\ir-remocon\ir-remocon.c
+[v F368 `(v  1 t 0 ]
+[v _entry `I(v  1 e 0 0 ]
+"33
+[v _main `(v  1 e 0 0 ]
+"26 C:\pic\ir-remocon\ir.c
+[v _ir_init `(v  1 e 0 0 ]
+"37
+[v _ir_save `(v  1 e 0 0 ]
+"50
+[v _ir_load `(v  1 e 0 0 ]
+"63
+[v _ir_shot `(v  1 e 0 0 ]
+"76
+[v _ir_control `(v  1 e 0 0 ]
+"100
+[v _ir_analize `(v  1 e 0 0 ]
+"17 C:\pic\ir-remocon\scif_tx.c
+[v _scif_tx_init `(v  1 e 0 0 ]
+"25
+[v _putch `(v  1 e 0 0 ]
+"38
+[v _puthc `(v  1 e 0 0 ]
+"50
+[v _putui `(v  1 e 0 0 ]
+"66
+[v _puts `(v  1 e 0 0 ]
+"70
+[v _deb_sig `(v  1 e 0 0 ]
+"77
+[v _deb_dat `(v  1 e 0 0 ]
+"358 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\include\pic.h
+[v __delay `(v  1 e 0 0 ]
+"8 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\eeread.c
+[v _eeprom_read `(uc  1 e 1 0 ]
+"8 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\eewrite.c
+[v _eeprom_write `(v  1 e 0 0 ]
+"5 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+"1 C:\pic\ir-remocon\ir.h
+[v _ir_sig `[16]uc  1 e 16 @65 ]
+"2
+[v _ir_ldrh `uc  1 e 1 @114 ]
+"3
+[v _ir_ldrl `uc  1 e 1 @64 ]
+"4
+[v _ir_turn `uc  1 e 1 @122 ]
+"5
+[v _ir_sigh `uc  1 e 1 @113 ]
+"6
+[v _ir_sigl `uc  1 e 1 @117 ]
+"7
+[v _ir_scnt `uc  1 e 1 @112 ]
+"9
+[v _ts `uc  1 e 1 @120 ]
+[v _tl `uc  1 e 1 @119 ]
+"10
+[v _hs `uc  1 e 1 @116 ]
+[v _hl `uc  1 e 1 @115 ]
+"11
+[v _ls `uc  1 e 1 @124 ]
+[v _ll `uc  1 e 1 @123 ]
+"13 C:\pic\ir-remocon\scif_tx.c
+[v _scif_tx_bit `uc  1 e 1 @121 ]
+"14
+[v _scif_tx_buf `uc  1 e 1 @118 ]
+"15
+[v _scif_tx_next `b  1 e 0 @1000 ]
+"15 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\include\pic12f683.h
+[v _INDF `Vuc  1 e 1 @0 ]
+"16
+[v _TMR0 `Vuc  1 e 1 @1 ]
+"17
+[v _PCL `Vuc  1 e 1 @2 ]
+"18
+[v _STATUS `Vuc  1 e 1 @3 ]
+"19
+[v _FSR `uc  1 e 1 @4 ]
+"20
+[v _GPIO `Vuc  1 e 1 @5 ]
+"21
+[v _PCLATH `Vuc  1 e 1 @10 ]
+"22
+[v _INTCON `Vuc  1 e 1 @11 ]
+"23
+[v _PIR1 `Vuc  1 e 1 @12 ]
+"24
+[v _TMR1L `Vuc  1 e 1 @14 ]
+"25
+[v _TMR1H `Vuc  1 e 1 @15 ]
+"26
+[v _T1CON `Vuc  1 e 1 @16 ]
+"27
+[v _TMR2 `Vuc  1 e 1 @17 ]
+"28
+[v _T2CON `Vuc  1 e 1 @18 ]
+"29
+[v _CCPR1L `Vuc  1 e 1 @19 ]
+"30
+[v _CCPR1H `Vuc  1 e 1 @20 ]
+"31
+[v _CCP1CON `Vuc  1 e 1 @21 ]
+"32
+[v _WDTCON `Vuc  1 e 1 @24 ]
+"33
+[v _CMCON0 `Vuc  1 e 1 @25 ]
+"34
+[v _CMCON1 `uc  1 e 1 @26 ]
+"35
+[v _ADRESH `Vuc  1 e 1 @30 ]
+"36
+[v _ADCON0 `Vuc  1 e 1 @31 ]
+"37
+[v _OPTION `uc  1 e 1 @129 ]
+"38
+[v _TRISIO `Vuc  1 e 1 @133 ]
+"39
+[v _PIE1 `uc  1 e 1 @140 ]
+"40
+[v _PCON `Vuc  1 e 1 @142 ]
+"41
+[v _OSCCON `Vuc  1 e 1 @143 ]
+"42
+[v _OSCTUNE `uc  1 e 1 @144 ]
+"43
+[v _PR2 `uc  1 e 1 @146 ]
+"44
+[v _WPU `uc  1 e 1 @149 ]
+"45
+[v _IOC `uc  1 e 1 @150 ]
+"46
+[v _VRCON `uc  1 e 1 @153 ]
+"47
+[v _EEDAT `Vuc  1 e 1 @154 ]
+"49
+[v _EEDATA `Vuc  1 e 1 @154 ]
+"50
+[v _EEADR `Vuc  1 e 1 @155 ]
+"52
+[v _EEADRL `Vuc  1 e 1 @155 ]
+"53
+[v _EECON1 `Vuc  1 e 1 @156 ]
+"54
+[v _EECON2 `Vuc  1 e 1 @157 ]
+"55
+[v _ADRESL `Vuc  1 e 1 @158 ]
+"56
+[v _ANSEL `uc  1 e 1 @159 ]
+"60
+[v _CARRY `Vb  1 e 0 @24 ]
+"61
+[v _DC `Vb  1 e 0 @25 ]
+"62
+[v _ZERO `Vb  1 e 0 @26 ]
+"63
+[v _PD `Vb  1 e 0 @27 ]
+"64
+[v _TO `Vb  1 e 0 @28 ]
+"65
+[v _RP0 `b  1 e 0 @29 ]
+"66
+[v _RP1 `b  1 e 0 @30 ]
+"67
+[v _IRP `b  1 e 0 @31 ]
+"70
+[v _GPIO0 `Vb  1 e 0 @40 ]
+"71
+[v _GPIO1 `Vb  1 e 0 @41 ]
+"72
+[v _GPIO2 `Vb  1 e 0 @42 ]
+"73
+[v _GPIO3 `Vb  1 e 0 @43 ]
+"74
+[v _GPIO4 `Vb  1 e 0 @44 ]
+"75
+[v _GPIO5 `Vb  1 e 0 @45 ]
+"78
+[v _GPIF `Vb  1 e 0 @88 ]
+"79
+[v _INTF `Vb  1 e 0 @89 ]
+"80
+[v _T0IF `Vb  1 e 0 @90 ]
+"81
+[v _GPIE `b  1 e 0 @91 ]
+"82
+[v _INTE `b  1 e 0 @92 ]
+"83
+[v _T0IE `b  1 e 0 @93 ]
+"84
+[v _PEIE `b  1 e 0 @94 ]
+"85
+[v _GIE `Vb  1 e 0 @95 ]
+"88
+[v _TMR1IF `Vb  1 e 0 @96 ]
+"89
+[v _TMR2IF `Vb  1 e 0 @97 ]
+"90
+[v _OSFIF `Vb  1 e 0 @98 ]
+"91
+[v _CMIF `Vb  1 e 0 @99 ]
+"92
+[v _CCP1IF `Vb  1 e 0 @101 ]
+"93
+[v _ADIF `Vb  1 e 0 @102 ]
+"94
+[v _EEIF `Vb  1 e 0 @103 ]
+"97
+[v _TMR1ON `b  1 e 0 @128 ]
+"98
+[v _TMR1CS `b  1 e 0 @129 ]
+"99
+[v _T1SYNC `b  1 e 0 @130 ]
+"100
+[v _T1OSCEN `b  1 e 0 @131 ]
+"101
+[v _T1CKPS0 `b  1 e 0 @132 ]
+"102
+[v _T1CKPS1 `b  1 e 0 @133 ]
+"103
+[v _T1GE `b  1 e 0 @134 ]
+"104
+[v _T1GINV `b  1 e 0 @135 ]
+"107
+[v _T2CKPS0 `b  1 e 0 @144 ]
+"108
+[v _T2CKPS1 `b  1 e 0 @145 ]
+"109
+[v _TMR2ON `b  1 e 0 @146 ]
+"110
+[v _TOUTPS0 `b  1 e 0 @147 ]
+"111
+[v _TOUTPS1 `b  1 e 0 @148 ]
+"112
+[v _TOUTPS2 `b  1 e 0 @149 ]
+"113
+[v _TOUTPS3 `b  1 e 0 @150 ]
+"116
+[v _CCP1M0 `b  1 e 0 @168 ]
+"117
+[v _CCP1M1 `b  1 e 0 @169 ]
+"118
+[v _CCP1M2 `b  1 e 0 @170 ]
+"119
+[v _CCP1M3 `b  1 e 0 @171 ]
+"120
+[v _DC1B0 `b  1 e 0 @172 ]
+"121
+[v _DC1B1 `b  1 e 0 @173 ]
+"124
+[v _SWDTEN `b  1 e 0 @192 ]
+"125
+[v _WDTPS0 `b  1 e 0 @193 ]
+"126
+[v _WDTPS1 `b  1 e 0 @194 ]
+"127
+[v _WDTPS2 `b  1 e 0 @195 ]
+"128
+[v _WDTPS3 `b  1 e 0 @196 ]
+"131
+[v _CM0 `b  1 e 0 @200 ]
+"132
+[v _CM1 `b  1 e 0 @201 ]
+"133
+[v _CM2 `b  1 e 0 @202 ]
+"134
+[v _CIS `b  1 e 0 @203 ]
+"135
+[v _CINV `b  1 e 0 @204 ]
+"136
+[v _COUT `Vb  1 e 0 @206 ]
+"139
+[v _CMSYNC `b  1 e 0 @208 ]
+"140
+[v _T1GSS `b  1 e 0 @209 ]
+"143
+[v _ADON `b  1 e 0 @248 ]
+"144
+[v _GODONE `Vb  1 e 0 @249 ]
+"145
+[v _CHS0 `b  1 e 0 @250 ]
+"146
+[v _CHS1 `b  1 e 0 @251 ]
+"147
+[v _CHS2 `b  1 e 0 @252 ]
+"148
+[v _VCFG `b  1 e 0 @254 ]
+"149
+[v _ADFM `b  1 e 0 @255 ]
+"152
+[v _PS0 `b  1 e 0 @1032 ]
+"153
+[v _PS1 `b  1 e 0 @1033 ]
+"154
+[v _PS2 `b  1 e 0 @1034 ]
+"155
+[v _PSA `b  1 e 0 @1035 ]
+"156
+[v _T0SE `b  1 e 0 @1036 ]
+"157
+[v _T0CS `b  1 e 0 @1037 ]
+"158
+[v _INTEDG `b  1 e 0 @1038 ]
+"159
+[v _GPPU `b  1 e 0 @1039 ]
+"162
+[v _TRISIO0 `Vb  1 e 0 @1064 ]
+"163
+[v _TRISIO1 `Vb  1 e 0 @1065 ]
+"164
+[v _TRISIO2 `Vb  1 e 0 @1066 ]
+"165
+[v _TRISIO3 `Vb  1 e 0 @1067 ]
+"166
+[v _TRISIO4 `Vb  1 e 0 @1068 ]
+"167
+[v _TRISIO5 `Vb  1 e 0 @1069 ]
+"170
+[v _TMR1IE `b  1 e 0 @1120 ]
+"171
+[v _TMR2IE `b  1 e 0 @1121 ]
+"172
+[v _OSFIE `b  1 e 0 @1122 ]
+"173
+[v _CMIE `b  1 e 0 @1123 ]
+"174
+[v _CCP1IE `b  1 e 0 @1125 ]
+"175
+[v _ADIE `b  1 e 0 @1126 ]
+"176
+[v _EEIE `b  1 e 0 @1127 ]
+"179
+[v _BOD `Vb  1 e 0 @1136 ]
+"180
+[v _POR `Vb  1 e 0 @1137 ]
+"181
+[v _SBODEN `b  1 e 0 @1140 ]
+"182
+[v _ULPWUE `b  1 e 0 @1141 ]
+"185
+[v _SCS `b  1 e 0 @1144 ]
+"186
+[v _LTS `Vb  1 e 0 @1145 ]
+"187
+[v _HTS `Vb  1 e 0 @1146 ]
+"188
+[v _OSTS `Vb  1 e 0 @1147 ]
+"189
+[v _IRCF0 `b  1 e 0 @1148 ]
+"190
+[v _IRCF1 `b  1 e 0 @1149 ]
+"191
+[v _IRCF2 `b  1 e 0 @1150 ]
+"194
+[v _TUN0 `b  1 e 0 @1152 ]
+"195
+[v _TUN1 `b  1 e 0 @1153 ]
+"196
+[v _TUN2 `b  1 e 0 @1154 ]
+"197
+[v _TUN3 `b  1 e 0 @1155 ]
+"198
+[v _TUN4 `b  1 e 0 @1156 ]
+"201
+[v _WPU0 `b  1 e 0 @1192 ]
+"202
+[v _WPU1 `b  1 e 0 @1193 ]
+"203
+[v _WPU2 `b  1 e 0 @1194 ]
+"204
+[v _WPU3 `b  1 e 0 @1195 ]
+"205
+[v _WPU4 `b  1 e 0 @1196 ]
+"206
+[v _WPU5 `b  1 e 0 @1197 ]
+"209
+[v _IOC0 `b  1 e 0 @1200 ]
+"210
+[v _IOC1 `b  1 e 0 @1201 ]
+"211
+[v _IOC2 `b  1 e 0 @1202 ]
+"212
+[v _IOC3 `b  1 e 0 @1203 ]
+"213
+[v _IOC4 `b  1 e 0 @1204 ]
+"214
+[v _IOC5 `b  1 e 0 @1205 ]
+"217
+[v _VR0 `b  1 e 0 @1224 ]
+"218
+[v _VR1 `b  1 e 0 @1225 ]
+"219
+[v _VR2 `b  1 e 0 @1226 ]
+"220
+[v _VR3 `b  1 e 0 @1227 ]
+"221
+[v _VRR `b  1 e 0 @1229 ]
+"222
+[v _VREN `b  1 e 0 @1231 ]
+"225
+[v _RD `Vb  1 e 0 @1248 ]
+"226
+[v _WR `Vb  1 e 0 @1249 ]
+"227
+[v _WREN `Vb  1 e 0 @1250 ]
+"228
+[v _WRERR `Vb  1 e 0 @1251 ]
+"231
+[v _ANS0 `b  1 e 0 @1272 ]
+"232
+[v _ANS1 `b  1 e 0 @1273 ]
+"233
+[v _ANS2 `b  1 e 0 @1274 ]
+"234
+[v _ANS3 `b  1 e 0 @1275 ]
+"235
+[v _ADCS0 `b  1 e 0 @1276 ]
+"236
+[v _ADCS1 `b  1 e 0 @1277 ]
+"237
+[v _ADCS2 `b  1 e 0 @1278 ]
+"33 C:\pic\ir-remocon\ir-remocon.c
+[v _main `(v  1 e 0 0 ]
+{
+"34
+[v _main_i `uc  1 a 1 0 ]
+"92
+} 1
+"70 C:\pic\ir-remocon\scif_tx.c
+[v _deb_sig `(v  1 e 0 0 ]
+{
+[v _deb_sig_s `*.cDCuc  1 a 1 wreg ]
+[v _deb_sig_s `*.cDCuc  1 a 1 wreg ]
+[v _deb_sig_d `ui  1 p 2 0 ]
+"75
+} 1
+"37 C:\pic\ir-remocon\ir.c
+[v _ir_save `(v  1 e 0 0 ]
+{
+"38
+[v _ir_save_i `uc  1 a 1 0 ]
+"48
+} 1
+"77 C:\pic\ir-remocon\scif_tx.c
+[v _deb_dat `(v  1 e 0 0 ]
+{
+[v _deb_dat_d `ui  1 p 2 0 ]
+[v _deb_dat_h `uc  1 p 1 2 ]
+"83
+} 0
+"76 C:\pic\ir-remocon\ir.c
+[v _ir_control `(v  1 e 0 0 ]
+{
+"77
+[v _ir_control_i `uc  1 a 1 1 ]
+"78
+[v _ir_control_b `uc  1 a 1 0 ]
+"98
+} 2
+"50
+[v _ir_load `(v  1 e 0 0 ]
+{
+"51
+[v _ir_load_i `uc  1 a 1 0 ]
+"61
+} 1
+"100
+[v _ir_analize `(v  1 e 0 0 ]
+{
+"101
+[v _ir_analize_b `uc  1 a 1 0 ]
+[v _ir_analize_i `uc  1 a 1 1 ]
+"102
+[v _ir_analize_sp `uc  1 a 1 2 ]
+"147
+} 3
+"26
+[v _ir_init `(v  1 e 0 0 ]
+{
+"35
+} 0
+"17 C:\pic\ir-remocon\scif_tx.c
+[v _scif_tx_init `(v  1 e 0 0 ]
+{
+"23
+} 0
+"38
+[v _puthc `(v  1 e 0 0 ]
+{
+[v _puthc_d `uc  1 a 1 wreg ]
+[v _puthc_d `uc  1 a 1 wreg ]
+"39
+[v _puthc_hc `DC[16]uc  1 s 16 hc ]
+"48
+} 1
+"8 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\eeread.c
+[v _eeprom_read `(uc  1 e 1 0 ]
+{
+[v _eeprom_read_addr `uc  1 a 1 wreg ]
+[v _eeprom_read_addr `uc  1 a 1 wreg ]
+"11
+} 1
+"8 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\eewrite.c
+[v _eeprom_write `(v  1 e 0 0 ]
+{
+[v _eeprom_write_addr `uc  1 a 1 wreg ]
+[v _eeprom_write_addr `uc  1 a 1 wreg ]
+[v _eeprom_write_value `uc  1 p 1 0 ]
+"10
+} 1
+"63 C:\pic\ir-remocon\ir.c
+[v _ir_shot `(v  1 e 0 0 ]
+{
+[v _ir_shot_t `uc  1 a 1 wreg ]
+[v _ir_shot_t `uc  1 a 1 wreg ]
+"74
+} 1
+"50 C:\pic\ir-remocon\scif_tx.c
+[v _putui `(v  1 e 0 0 ]
+{
+"52
+[v _putui_i `uc  1 a 1 0 ]
+"53
+[v _putui_buf `[5]uc  1 a 5 1 ]
+"50
+[v _putui_ui `ui  1 p 2 0 ]
+[v _putui_d `uc  1 p 1 2 ]
+"64
+} 6
+"66
+[v _puts `(v  1 e 0 0 ]
+{
+[v _puts_s `*.cDCuc  1 a 1 wreg ]
+[v _puts_s `*.cDCuc  1 a 1 wreg ]
+"68
+} 1
+"25
+[v _putch `(v  1 e 0 0 ]
+{
+[v _putch_c `uc  1 a 1 wreg ]
+[v _putch_c `uc  1 a 1 wreg ]
+"36
+} 1
+"5 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+{
+"6
+[v ___lwmod_counter `uc  1 a 1 0 ]
+"5
+[v ___lwmod_dividend `ui  1 p 2 0 ]
+[v ___lwmod_divisor `ui  1 p 2 2 ]
+"21
+} 1
+"5 C:\Program Files\HI-TECH Software\PICC\PRO\9.60\sources\lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+{
+"7
+[v ___lwdiv_counter `uc  1 a 1 0 ]
+"6
+[v ___lwdiv_quotient `ui  1 a 2 1 ]
+"5
+[v ___lwdiv_dividend `ui  1 p 2 0 ]
+[v ___lwdiv_divisor `ui  1 p 2 2 ]
+"26
+} 3
+"28 C:\pic\ir-remocon\ir-remocon.c
+[v _entry `I(v  1 e 0 0 ]
+{
+"31
+} 0
