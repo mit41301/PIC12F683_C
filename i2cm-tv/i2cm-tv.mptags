@@ -1,0 +1,81 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+BUF_SIZE::64	C:\pic\i2cm-tv\sci.c	12;"	d	line:12	file:
+I2C2_ADR::82	C:\pic\i2cm-tv\i2cm-tv.c	10;"	d	line:10	file:
+RX_BUF	C:\pic\i2cm-tv\sci.c	20;"	t	line:20	file:
+XOFF::19	C:\pic\i2cm-tv\sci.c	11;"	d	line:11	file:
+XON::17	C:\pic\i2cm-tv\sci.c	10;"	d	line:10	file:
+_U1RXInterrupt	C:\pic\i2cm-tv\sci.c	53;"	f	line:53	signature:(void)
+_U2RXInterrupt	C:\pic\i2cm-tv\sci.c	150;"	f	line:150	signature:(void)
+buf	C:\pic\i2cm-tv\sci.c	16;"	m	line:16	file:
+c	C:\pic\i2cm-tv\sci.c	151;"	l	line:151
+c	C:\pic\i2cm-tv\sci.c	169;"	l	line:169
+c	C:\pic\i2cm-tv\sci.c	183;"	l	line:183
+c	C:\pic\i2cm-tv\sci.c	54;"	l	line:54
+c	C:\pic\i2cm-tv\sci.c	81;"	l	line:81
+c	C:\pic\i2cm-tv\sci.c	99;"	l	line:99
+d	C:\pic\i2cm-tv\i2cm.c	49;"	l	line:49
+dc	C:\pic\i2cm-tv\sci.c	19;"	m	line:19	file:
+delay_ms	C:\pic\i2cm-tv\delay.c	17;"	f	line:17	signature:(unsigned int t)
+delay_ms	C:\pic\i2cm-tv\delay.h	9;"	p	line:9	signature:(unsigned int)
+delay_s	C:\pic\i2cm-tv\delay.c	21;"	f	line:21	signature:(unsigned int t)
+delay_s	C:\pic\i2cm-tv\delay.h	10;"	p	line:10	signature:(unsigned int)
+delay_us	C:\pic\i2cm-tv\delay.c	9;"	f	line:9	signature:(unsigned int t)
+delay_us	C:\pic\i2cm-tv\delay.h	8;"	p	line:8	signature:(unsigned int)
+getch1	C:\pic\i2cm-tv\sci.c	80;"	f	line:80	signature:(void)
+getch1	C:\pic\i2cm-tv\sci.h	5;"	p	line:5	signature:(void)
+getch2	C:\pic\i2cm-tv\sci.c	168;"	f	line:168	signature:(void)
+getch2	C:\pic\i2cm-tv\sci.h	12;"	p	line:12	signature:(void)
+gets1	C:\pic\i2cm-tv\sci.c	97;"	f	line:97	signature:(char *buf, unsigned char max)
+gets1	C:\pic\i2cm-tv\sci.h	6;"	p	line:6	signature:(char *, unsigned char)
+gets2	C:\pic\i2cm-tv\sci.c	181;"	f	line:181	signature:(char *buf, unsigned char max)
+gets2	C:\pic\i2cm-tv\sci.h	13;"	p	line:13	signature:(char *, unsigned char)
+i2c1_init	C:\pic\i2cm-tv\i2cm.h	7;"	p	line:7	signature:(void)
+i2c1_read	C:\pic\i2cm-tv\i2cm.h	12;"	p	line:12	signature:(unsigned char)
+i2c1_repstart	C:\pic\i2cm-tv\i2cm.h	9;"	p	line:9	signature:(void)
+i2c1_start	C:\pic\i2cm-tv\i2cm.h	8;"	p	line:8	signature:(void)
+i2c1_stop	C:\pic\i2cm-tv\i2cm.h	10;"	p	line:10	signature:(void)
+i2c1_write	C:\pic\i2cm-tv\i2cm.h	11;"	p	line:11	signature:(unsigned char)
+i2c2_idleck	C:\pic\i2cm-tv\i2cm.c	17;"	f	line:17	signature:(void)
+i2c2_init	C:\pic\i2cm-tv\i2cm.c	9;"	f	line:9	signature:(void)
+i2c2_init	C:\pic\i2cm-tv\i2cm.h	13;"	p	line:13	signature:(void)
+i2c2_read	C:\pic\i2cm-tv\i2cm.c	48;"	f	line:48	signature:(unsigned char a)
+i2c2_read	C:\pic\i2cm-tv\i2cm.h	18;"	p	line:18	signature:(unsigned char)
+i2c2_repstart	C:\pic\i2cm-tv\i2cm.c	29;"	f	line:29	signature:(void)
+i2c2_repstart	C:\pic\i2cm-tv\i2cm.h	15;"	p	line:15	signature:(void)
+i2c2_start	C:\pic\i2cm-tv\i2cm.c	24;"	f	line:24	signature:(void)
+i2c2_start	C:\pic\i2cm-tv\i2cm.h	14;"	p	line:14	signature:(void)
+i2c2_stop	C:\pic\i2cm-tv\i2cm.c	34;"	f	line:34	signature:(void)
+i2c2_stop	C:\pic\i2cm-tv\i2cm.h	16;"	p	line:16	signature:(void)
+i2c2_write	C:\pic\i2cm-tv\i2cm.c	40;"	f	line:40	signature:(unsigned char d)
+i2c2_write	C:\pic\i2cm-tv\i2cm.h	17;"	p	line:17	signature:(unsigned char)
+kbhit1	C:\pic\i2cm-tv\sci.c	76;"	f	line:76	signature:(void)
+kbhit1	C:\pic\i2cm-tv\sci.h	4;"	p	line:4	signature:(void)
+kbhit2	C:\pic\i2cm-tv\sci.c	164;"	f	line:164	signature:(void)
+kbhit2	C:\pic\i2cm-tv\sci.h	11;"	p	line:11	signature:(void)
+len	C:\pic\i2cm-tv\sci.c	100;"	l	line:100
+len	C:\pic\i2cm-tv\sci.c	184;"	l	line:184
+main	C:\pic\i2cm-tv\i2cm-tv.c	32;"	f	line:32	signature:(void)
+putch1	C:\pic\i2cm-tv\sci.c	42;"	f	line:42	signature:(char c)
+putch1	C:\pic\i2cm-tv\sci.h	2;"	p	line:2	signature:(char)
+putch2	C:\pic\i2cm-tv\sci.c	140;"	f	line:140	signature:(char c)
+putch2	C:\pic\i2cm-tv\sci.h	9;"	p	line:9	signature:(char)
+puts1	C:\pic\i2cm-tv\sci.c	48;"	f	line:48	signature:(char *s)
+puts1	C:\pic\i2cm-tv\sci.h	3;"	p	line:3	signature:(char *)
+puts2	C:\pic\i2cm-tv\sci.c	145;"	f	line:145	signature:(char *s)
+puts2	C:\pic\i2cm-tv\sci.h	10;"	p	line:10	signature:(char *)
+rp	C:\pic\i2cm-tv\sci.c	18;"	m	line:18	file:
+u1rx	C:\pic\i2cm-tv\sci.c	22;"	v	line:22
+u2rx	C:\pic\i2cm-tv\sci.c	23;"	v	line:23
+uart1_init	C:\pic\i2cm-tv\sci.c	25;"	f	line:25	signature:(void)
+uart1_init	C:\pic\i2cm-tv\sci.h	1;"	p	line:1	signature:(void)
+uart2_init	C:\pic\i2cm-tv\sci.c	123;"	f	line:123	signature:(void)
+uart2_init	C:\pic\i2cm-tv\sci.h	8;"	p	line:8	signature:(void)
+wp	C:\pic\i2cm-tv\sci.c	17;"	m	line:17	file:
+xf	C:\pic\i2cm-tv\sci.c	15;"	m	line:15	file:
