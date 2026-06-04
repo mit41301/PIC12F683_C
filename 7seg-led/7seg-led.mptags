@@ -1,0 +1,70 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+DEBUGDIS	C:\pic\7seg-led\7seg-led.c	20;"	v	line:20
+FF88	C:\pic\7seg-led\7seg-led.c	28;"	v	line:28
+FONT7S_A::0b11001111	C:\pic\7seg-led\font7s.h	16;"	d	line:16
+FONT7S_A::0b11001111	C:\pic\7seg-led\i2cs-led7.h	3;"	d	line:3
+FONT7S_BLANK::0b00000000	C:\pic\7seg-led\font7s.h	15;"	d	line:15
+FONT7S_BLANK::0b00000000	C:\pic\7seg-led\i2cs-led7.h	2;"	d	line:2
+FONT7S_C::0b01010011	C:\pic\7seg-led\font7s.h	19;"	d	line:19
+FONT7S_C::0b01010011	C:\pic\7seg-led\i2cs-led7.h	6;"	d	line:6
+FONT7S_E::0b11010011	C:\pic\7seg-led\font7s.h	22;"	d	line:22
+FONT7S_E::0b11010011	C:\pic\7seg-led\i2cs-led7.h	9;"	d	line:9
+FONT7S_F::0b11000011	C:\pic\7seg-led\font7s.h	23;"	d	line:23
+FONT7S_F::0b11000011	C:\pic\7seg-led\i2cs-led7.h	10;"	d	line:10
+FONT7S_MINUS::0b10000000	C:\pic\7seg-led\font7s.h	14;"	d	line:14
+FONT7S_MINUS::0b10000000	C:\pic\7seg-led\i2cs-led7.h	1;"	d	line:1
+FONT7S_a::0b11011110	C:\pic\7seg-led\font7s.h	17;"	d	line:17
+FONT7S_a::0b11011110	C:\pic\7seg-led\i2cs-led7.h	4;"	d	line:4
+FONT7S_b::0b11011001	C:\pic\7seg-led\font7s.h	18;"	d	line:18
+FONT7S_b::0b11011001	C:\pic\7seg-led\i2cs-led7.h	5;"	d	line:5
+FONT7S_c::0b11010000	C:\pic\7seg-led\font7s.h	20;"	d	line:20
+FONT7S_c::0b11010000	C:\pic\7seg-led\i2cs-led7.h	7;"	d	line:7
+FONT7S_d::0b11011100	C:\pic\7seg-led\font7s.h	21;"	d	line:21
+FONT7S_d::0b11011100	C:\pic\7seg-led\i2cs-led7.h	8;"	d	line:8
+FONT7S_n::0b11001000	C:\pic\7seg-led\font7s.h	24;"	d	line:24
+FONT7S_n::0b11001000	C:\pic\7seg-led\i2cs-led7.h	11;"	d	line:11
+FONT7S_o::0b11011000	C:\pic\7seg-led\font7s.h	25;"	d	line:25
+FONT7S_o::0b11011000	C:\pic\7seg-led\i2cs-led7.h	12;"	d	line:12
+FONT7S_r::0b11000000	C:\pic\7seg-led\font7s.h	26;"	d	line:26
+FONT7S_r::0b11000000	C:\pic\7seg-led\i2cs-led7.h	13;"	d	line:13
+FONT7S_y::0b10011101	C:\pic\7seg-led\font7s.h	27;"	d	line:27
+FONT7S_y::0b10011101	C:\pic\7seg-led\i2cs-led7.h	14;"	d	line:14
+I2CS_ADR::83	C:\pic\7seg-led\i2cs-led7.c	25;"	d	line:25	file:
+IESODIS	C:\pic\7seg-led\7seg-led.c	25;"	v	line:25
+LED1::RB3	C:\pic\7seg-led\i2cs-led7.c	10;"	d	line:10	file:
+LED2::RB5	C:\pic\7seg-led\i2cs-led7.c	11;"	d	line:11	file:
+LED3::RB6	C:\pic\7seg-led\i2cs-led7.c	12;"	d	line:12	file:
+LED4::RB0	C:\pic\7seg-led\i2cs-led7.c	13;"	d	line:13	file:
+LED_DP::RB2	C:\pic\7seg-led\i2cs-led7.c	14;"	d	line:14	file:
+_XTAL_FREQ::8000000	C:\pic\7seg-led\7seg-led.c	9;"	d	line:9	file:
+an6_getv	C:\pic\7seg-led\7seg-led.c	41;"	f	line:41	signature:(void)
+an6_init	C:\pic\7seg-led\7seg-led.c	30;"	f	line:30
+delay_s	C:\pic\7seg-led\7seg-led.c	50;"	f	line:50	signature:(unsigned char s)
+entry	C:\pic\7seg-led\i2cs-led7.c	88;"	f	line:88	signature:(void)
+font7s	C:\pic\7seg-led\font7s.h	1;"	v	line:1
+i	C:\pic\7seg-led\7seg-led.c	51;"	l	line:51
+i	C:\pic\7seg-led\i2cs-led7.c	51;"	l	line:51
+i2cs_d	C:\pic\7seg-led\i2cs-led7.c	29;"	v	line:29
+i2cs_dummy	C:\pic\7seg-led\i2cs-led7.c	28;"	v	line:28
+i2cs_init	C:\pic\7seg-led\i2cs-led7.c	68;"	f	line:68	signature:(void)
+i2cs_init	C:\pic\7seg-led\i2cs-led7.h	21;"	p	line:21	signature:(void)
+i2cs_stage	C:\pic\7seg-led\i2cs-led7.c	27;"	v	line:27
+i2cs_sync	C:\pic\7seg-led\i2cs-led7.c	81;"	f	line:81	signature:(void)
+i2cs_sync	C:\pic\7seg-led\i2cs-led7.h	22;"	p	line:22	signature:(void)
+led7_dig	C:\pic\7seg-led\i2cs-led7.c	16;"	v	line:16
+led7_dot	C:\pic\7seg-led\i2cs-led7.c	59;"	f	line:59	signature:(unsigned char led7_dig)
+led7_dot	C:\pic\7seg-led\i2cs-led7.h	18;"	p	line:18	signature:(unsigned char)
+led7_init	C:\pic\7seg-led\i2cs-led7.c	31;"	f	line:31	signature:(void)
+led7_init	C:\pic\7seg-led\i2cs-led7.h	19;"	p	line:19	signature:(void)
+led7_ptn	C:\pic\7seg-led\i2cs-led7.c	17;"	v	line:17
+led7_putui	C:\pic\7seg-led\i2cs-led7.c	50;"	f	line:50	signature:(unsigned int ui)
+led7_putui	C:\pic\7seg-led\i2cs-led7.h	17;"	p	line:17	signature:(unsigned int)
+led7_sel	C:\pic\7seg-led\i2cs-led7.c	18;"	v	line:18
+main	C:\pic\7seg-led\7seg-led.c	58;"	f	line:58	signature:(void)

@@ -1,0 +1,2714 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL5 build 3884 
+                                                      Wed Nov 18 11:14:15 2009
+
+HI-TECH Software Omniscient Code Generator build 3884
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code 
+                                 Generator build 3884"
+     2                           
+     3                           	processor	16F88
+     4                           clrc	macro
+     5                           	bcf	status,0
+     6  0000                     	endm
+     7                           clrz	macro
+     8                           	bcf	status,2
+     9  0000                     	endm
+    10                           setc	macro
+    11                           	bsf	status,0
+    12  0000                     	endm
+    13                           setz	macro
+    14                           	bsf	status,2
+    15  0000                     	endm
+    16                           skipc	macro
+    17                           	btfss	status,0
+    18  0000                     	endm
+    19                           skipz	macro
+    20                           	btfss	status,2
+    21  0000                     	endm
+    22                           skipnc	macro
+    23                           	btfsc	status,0
+    24  0000                     	endm
+    25                           skipnz	macro
+    26                           	btfsc	status,2
+    27  0000                     	endm
+    28  0000                     indf	equ	0
+    29  0000                     indf0	equ	0
+    30  0000                     pc	equ	2
+    31  0000                     pcl	equ	2
+    32  0000                     status	equ	3
+    33  0000                     fsr	equ	4
+    34  0000                     fsr0	equ	4
+    35  0000                     c	equ	1
+    36  0000                     z	equ	0
+    37  0000                     pclath	equ	10
+    38                           # 11 "C:\pic\7seg-led\7seg-led.c"
+    39                           	psect config,class=CONFIG,delta=2 ;#
+    40                           # 11 "C:\pic\7seg-led\7seg-led.c"
+    41  2007  2F10               	dw 0x3FDF & 0x3FF7 & 0x3FBF & 0x3FFF & 0x3FFB 
+                                 & 0x3F7F & 0x3FFC & 0x2FFF & 0x3FFF ;#
+    42                           # 23 "C:\pic\7seg-led\7seg-led.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 23 "C:\pic\7seg-led\7seg-led.c"
+    45  2008  3FFC               	dw 0x3FFE & 0x3FFD ;#
+    46                           # 28 "C:\pic\7seg-led\7seg-led.c"
+    47                           	psect idloc,class=IDLOC,delta=2 ;#
+    48                           # 28 "C:\pic\7seg-led\7seg-led.c"
+    49                           	global	idloc_word ;#
+    50                           # 28 "C:\pic\7seg-led\7seg-led.c"
+    51  2000                     idloc_word ;#
+    52                           # 28 "C:\pic\7seg-led\7seg-led.c"
+    53                           	irpc	__arg,FF88 ;#
+    54                           # 28 "C:\pic\7seg-led\7seg-led.c"
+    55                           	dw 0&__arg&h ;#
+    56                           # 28 "C:\pic\7seg-led\7seg-led.c"
+    57  2000                     	endm ;#
+      + 2000  000F               	dw	15
+      + 2001  000F               	dw	15
+      + 2002  0008               	dw	8
+      + 2003  0008               	dw	8
+    58                           global __tempreg
+    59  0000                     __tempreg	set	90
+    60                           global __Lcommon, __Hcommon
+    61  0000                     __Lcommon set 0x74
+    62  0000                     __Hcommon set 0x7E
+    63                           global __Lrdata_0, __Hrdata_0
+    64  0000                     __Lrdata_0	equ	0x0
+    65  0000                     __Hrdata_0	equ	0x1
+    66                           global __Lramdata, __Lrdata_0, __Hramdata, __Hr
+                                 data_0
+    67  0000                     __Lramdata	set	__Lrdata_0
+    68  0000                     __Hramdata	set	__Hrdata_0
+    69                           	GLOBAL	__databank
+    70  0000                     __databank	EQU	0
+    71  0000                     _led7_dot_led7_dig	equ	??_led7_dot+0
+    72                           	global	_led7_dot_led7_dig
+    73  0000                     _led7_putui_i	equ	??_led7_putui+0
+    74                           	global	_led7_putui_i
+    75  0000                     _led7_putui_ui	equ	?_led7_putui+0
+    76                           	global	_led7_putui_ui
+    77  0000                     ___lwmod_counter	equ	??___lwmod+0
+    78                           	global	___lwmod_counter
+    79  0000                     ___lwmod_dividend	equ	?___lwmod+0
+    80                           	global	___lwmod_dividend
+    81  0000                     ___lwmod_divisor	equ	?___lwmod+2
+    82                           	global	___lwmod_divisor
+    83  0000                     ___lwdiv_counter	equ	??___lwdiv+0
+    84                           	global	___lwdiv_counter
+    85  0000                     ___lwdiv_quotient	equ	??___lwdiv+1
+    86                           	global	___lwdiv_quotient
+    87  0000                     ___lwdiv_dividend	equ	?___lwdiv+0
+    88                           	global	___lwdiv_dividend
+    89  0000                     ___lwdiv_divisor	equ	?___lwdiv+2
+    90                           	global	___lwdiv_divisor
+    91                           ;Data sizes: Strings 0, constant 14, data 0, bs
+                                 s 0, persistent 0 stack 21
+    92                           	global	_main
+    93                           	global	??_main
+    94                           	global	?_main
+    95                           
+    96                           ; *************** function _main **************
+                                 *
+    97                           ; Defined at:
+    98                           ;		line 58 in file "C:\pic\7seg-led\7seg-led.c"
+    99                           ; Parameters:
+   100                           ;		None
+   101                           ; Auto variables:
+   102                           ;		None
+   103                           ; Return value:
+   104                           ;		type: void 
+   105                           ;		size: 0
+   106                           ; Registers used:
+   107                           ;		wreg, fsr, status,2, status,0, pclath, cstac
+                                 k
+   108                           ; Tracked objects:
+   109                           ;		On entry : BFF/0
+   110                           ;		On exit  : 0/0
+   111                           ;		Unchanged: 0/0
+   112                           ; Data sizes:
+   113                           ;		Autos:    0
+   114                           ;		Params:   0
+   115                           ;		Temp:     2
+   116                           ;		Total:    2
+   117                           ; This function calls:
+   118                           ;		_led7_init
+   119                           ;		_i2cs_init
+   120                           ;		_i2cs_sync
+   121                           ;		__delay
+   122                           ; This function is called by:
+   123                           ;		Startup code after reset
+   124                           ; This function uses a non-reentrant model
+   125                           ; 
+   126                           	psect	maintext,class=CODE,delta=2
+   127                           	file	"C:\pic\7seg-led\7seg-led.c"
+   128                           	line	58
+   129                           	psect	maintext
+   130                           ;7seg-led.c: 58: void main(void){
+   131                           	
+   132  0023                     _main:	
+   133                           ; Regs used in _main: [wreg+fsr+status,2+status
+                                 ,0+pclath+cstack]
+   134                           	line	59
+   135                           ;7seg-led.c: 59: OSCCON = 0b01110000;
+   136  0023  3070               	movlw	(070h)
+   137  0024  1683               	bsf	status, 5	;RP0=1, select bank1
+   138  0025  1303               	bcf	status, 6	;RP2=0, select bank1
+   139                           	
+   140  0026  008F               	movwf	(143)^080h	;volatile
+   141                           	line	61
+   142                           ;7seg-led.c: 61: led7_init();
+   143  0027  118A  21F1  118A   	fcall	_led7_init
+   144                           	line	62
+   145                           ;7seg-led.c: 62: i2cs_init();
+   146  002A  118A  22EA  118A   	fcall	_i2cs_init
+   147                           	line	63
+   148                           ;7seg-led.c: 63: PEIE = 1;
+   149  002D  1283               	bcf	status, 5	;RP0=0, select bank0
+   150  002E  1303               	bcf	status, 6	;RP2=0, select bank0
+   151  002F  170B               	bsf	(94/8),(94)&7
+   152                           	line	64
+   153                           ;7seg-led.c: 64: (GIE = 1);
+   154  0030  178B               	bsf	(95/8),(95)&7
+   155                           	line	66
+   156                           ;7seg-led.c: 66: while(SSPIF == 0);
+   157  0031  2832               	goto	l14
+   158                           	
+   159  0032                     l14:	
+   160  0032  1D8C               	btfss	(99/8),(99)&7
+   161  0033  2835               	goto	u1571
+   162  0034  2836               	goto	u1570
+   163  0035                     u1571:
+   164  0035  2832               	goto	l14
+   165  0036                     u1570:
+   166                           	
+   167  0036                     l16:	
+   168                           	line	68
+   169                           ;7seg-led.c: 68: while(1){
+   170                           	
+   171  0036                     l18:	
+   172                           	line	69
+   173                           ;7seg-led.c: 69: while(STOP == 0);
+   174  0036  2837               	goto	l20
+   175                           	
+   176  0037                     l20:	
+   177  0037  1683               	bsf	status, 5	;RP0=1, select bank1
+   178  0038  1303               	bcf	status, 6	;RP2=0, select bank1
+   179  0039  1E14               	btfss	(1188/8)^080h,(1188)&7
+   180  003A  283C               	goto	u1581
+   181  003B  283D               	goto	u1580
+   182  003C                     u1581:
+   183  003C  2837               	goto	l20
+   184  003D                     u1580:
+   185                           	
+   186  003D                     l22:	
+   187                           	line	70
+   188                           ;7seg-led.c: 70: i2cs_sync();
+   189  003D  118A  22CF  118A   	fcall	_i2cs_sync
+   190                           	line	71
+   191                           ;7seg-led.c: 71: _delay((unsigned long)((50)*(8
+                                 000000/4000UL)));
+   192  0040  1283               	bcf	status, 5	;RP0=0, select bank0
+   193  0041  1303               	bcf	status, 6	;RP2=0, select bank0
+   194                           	
+   195  0042  3082               	movlw	130
+   196  0043  00A1               movwf	(??_main+0+0+1),f
+   197  0044  30DD               	movlw	221
+   198  0045  00A0               movwf	(??_main+0+0),f
+   199  0046                     u1767:
+   200  0046  0BA0               	decfsz	(??_main+0+0),f
+   201  0047  2846               	goto	u1767
+   202  0048  0BA1               	decfsz	(??_main+0+0+1),f
+   203  0049  2846               	goto	u1767
+   204  004A  284B               	nop2
+   205                           
+   206                           	line	72
+   207                           	
+   208  004B                     l17:	
+   209                           	line	68
+   210  004B  2836               	goto	l18
+   211                           	global	start
+   212  004C  118A  2811         	ljmp	start
+   213                           ; =============== function _main ends =========
+                                 ======
+   214                           
+   215                           GLOBAL __end_of_main
+   216  004E                     	__end_of_main:
+   217                           	FNSIZE	_main,2,0
+   218                           	psect	maintext
+   219                           	line	73
+   220                           	signat	_main,88
+   221                           	global	_i2cs_sync
+   222                           	global	??_i2cs_sync
+   223                           	global	?_i2cs_sync
+   224                           
+   225                           ; *************** function _i2cs_sync *********
+                                 ******
+   226                           ; Defined at:
+   227                           ;		line 81 in file "C:\pic\7seg-led\i2cs-led7.c
+                                 "
+   228                           ; Parameters:
+   229                           ;		None
+   230                           ; Auto variables:
+   231                           ;		None
+   232                           ; Return value:
+   233                           ;		type: void 
+   234                           ;		size: 0
+   235                           ; Registers used:
+   236                           ;		wreg, fsr, status,2, status,0, pclath, cstac
+                                 k
+   237                           ; Tracked objects:
+   238                           ;		On entry : 300/100
+   239                           ;		On exit  : 0/0
+   240                           ;		Unchanged: 0/0
+   241                           ; Data sizes:
+   242                           ;		Autos:    0
+   243                           ;		Params:   0
+   244                           ;		Temp:     2
+   245                           ;		Total:    2
+   246                           ; This function calls:
+   247                           ;		_led7_putui
+   248                           ;		_led7_dot
+   249                           ; This function is called by:
+   250                           ;		_main
+   251                           ; This function uses a non-reentrant model
+   252                           ; 
+   253                           	psect	text82,local,class=CODE,delta=2
+   254                           	file	"C:\pic\7seg-led\i2cs-led7.c"
+   255                           	line	81
+   256                           ;i2cs-led7.c: 81: void i2cs_sync(void){
+   257                           	
+   258  02CF                     _i2cs_sync:	
+   259                           ; Regs used in _i2cs_sync: [wreg+fsr+status,2+s
+                                 tatus,0+pclath+cstack]
+   260                           	line	84
+   261                           ;i2cs-led7.c: 82: led7_putui(
+   262                           ;i2cs-led7.c: 83: (i2cs_d[0] << 8) | i2cs_d[1]
+   263                           ;i2cs-led7.c: 84: );
+   264  02CF  1283               	bcf	status, 5	;RP0=0, select bank0
+   265  02D0  1303               	bcf	status, 6	;RP2=0, select bank0
+   266                           	
+   267  02D1  0874               	movf	(116),w
+   268                           	
+   269  02D2  00A2               	movwf	(??_i2cs_sync+0+0)
+   270  02D3  01A3               	clrf	(??_i2cs_sync+0+0+1)
+   271  02D4  3008               	movlw	08h
+   272  02D5  0084               	movwf	fsr
+   273  02D6                     u1615:
+   274  02D6  1003               	clrc
+   275  02D7  0DA2               	rlf	(??_i2cs_sync+0+0),f
+   276  02D8  0DA3               	rlf	(??_i2cs_sync+0+1),f
+   277  02D9  0B84               	decfsz	fsr,f
+   278  02DA  2AD6               	goto	u1615
+   279                           	
+   280  02DB  0875               	movf	0+(116)+01h,w
+   281                           	
+   282  02DC  0422               	iorwf	0+(??_i2cs_sync+0+0),w
+   283                           	
+   284  02DD  00A4               	movwf	(?_led7_putui)
+   285  02DE  0823               	movf	1+(??_i2cs_sync+0+0),w
+   286  02DF  00A5               	movwf	1+(?_led7_putui)
+   287  02E0  118A  2239  118A   	fcall	_led7_putui
+   288                           	line	85
+   289                           ;i2cs-led7.c: 85: led7_dot(i2cs_d[2]);
+   290  02E3  1283               	bcf	status, 5	;RP0=0, select bank0
+   291  02E4  1303               	bcf	status, 6	;RP2=0, select bank0
+   292                           	
+   293  02E5  0876               	movf	0+(116)+02h,w
+   294                           	
+   295  02E6  118A  22B2  118A   	fcall	_led7_dot
+   296                           	line	86
+   297                           ;i2cs-led7.c: 86: }
+   298  02E9                     l31:	
+   299  02E9  0008               	return
+   300                           ; =============== function _i2cs_sync ends ====
+                                 ===========
+   301                           
+   302                           GLOBAL __end_of_i2cs_sync
+   303  02EA                     	__end_of_i2cs_sync:
+   304                           	FNSIZE	_i2cs_sync,2,0
+   305                           	signat	_i2cs_sync,88
+   306                           	global	_led7_init
+   307                           	global	??_led7_init
+   308                           	global	?_led7_init
+   309                           
+   310                           ; *************** function _led7_init *********
+                                 ******
+   311                           ; Defined at:
+   312                           ;		line 31 in file "C:\pic\7seg-led\i2cs-led7.c
+                                 "
+   313                           ; Parameters:
+   314                           ;		None
+   315                           ; Auto variables:
+   316                           ;		None
+   317                           ; Return value:
+   318                           ;		type: void 
+   319                           ;		size: 0
+   320                           ; Registers used:
+   321                           ;		wreg, status,2, status,0
+   322                           ; Tracked objects:
+   323                           ;		On entry : BFF/100
+   324                           ;		On exit  : 0/0
+   325                           ;		Unchanged: 0/0
+   326                           ; Data sizes:
+   327                           ;		Autos:    0
+   328                           ;		Params:   0
+   329                           ;		Temp:     1
+   330                           ;		Total:    1
+   331                           ; This function calls:
+   332                           ;		Nothing
+   333                           ; This function is called by:
+   334                           ;		_main
+   335                           ; This function uses a non-reentrant model
+   336                           ; 
+   337                           	psect	text83,local,class=CODE,delta=2
+   338                           	file	"C:\pic\7seg-led\i2cs-led7.c"
+   339                           	line	31
+   340                           ;i2cs-led7.c: 18: const unsigned char led7_sel[
+                                 ] = {
+   341                           ;i2cs-led7.c: 19: 0b00000001,
+   342                           ;i2cs-led7.c: 20: 0b01000000,
+   343                           ;i2cs-led7.c: 21: 0b00100000,
+   344                           ;i2cs-led7.c: 22: 0b00001000
+   345                           ;i2cs-led7.c: 23: };
+   346                           ;i2cs-led7.c: 27: unsigned char i2cs_stage;
+   347                           ;i2cs-led7.c: 28: unsigned char i2cs_dummy;
+   348                           ;i2cs-led7.c: 29: unsigned char i2cs_d[3];
+   349                           ;i2cs-led7.c: 31: void led7_init(void){
+   350                           	
+   351  01F1                     _led7_init:	
+   352                           ; Regs used in _led7_init: [wreg+status,2+statu
+                                 s,0]
+   353                           	line	32
+   354                           ;i2cs-led7.c: 32: CMCON = 0b00000111;
+   355  01F1  3007               	movlw	(07h)
+   356                           	
+   357  01F2  009C               	movwf	(156)^080h	;volatile
+   358                           	line	33
+   359                           ;i2cs-led7.c: 33: ANSEL &= 0b01000000;
+   360  01F3  3040               	movlw	(040h)
+   361  01F4  1283               	bcf	status, 5	;RP0=0, select bank0
+   362  01F5  1303               	bcf	status, 6	;RP2=0, select bank0
+   363  01F6  00A2               	movwf	(??_led7_init+0+0)
+   364  01F7  1683               	bsf	status, 5	;RP0=1, select bank1
+   365  01F8  1303               	bcf	status, 6	;RP2=0, select bank1
+   366                           	
+   367  01F9  1283               	bcf	status, 5	;RP0=0, select bank0
+   368  01FA  1303               	bcf	status, 6	;RP2=0, select bank0
+   369  01FB  0822               	movf	(??_led7_init+0+0),w
+   370  01FC  1683               	bsf	status, 5	;RP0=1, select bank1
+   371  01FD  1303               	bcf	status, 6	;RP2=0, select bank1
+   372  01FE  059B               	andwf	(155)^080h,f
+   373                           	line	34
+   374                           ;i2cs-led7.c: 34: OPTION = 0b10000100;
+   375  01FF  3084               	movlw	(084h)
+   376                           	
+   377  0200  0081               	movwf	(129)^080h
+   378                           	line	35
+   379                           ;i2cs-led7.c: 35: PORTA = 0;
+   380  0201  1003               	clrc
+   381  0202  1283               	bcf	status, 5	;RP0=0, select bank0
+   382  0203  1303               	bcf	status, 6	;RP2=0, select bank0
+   383                           	
+   384  0204  3000               	movlw	0
+   385  0205  1803               	btfsc	status,0
+   386  0206  3001               	movlw	1
+   387  0207  0085               	movwf	(5)	;volatile
+   388                           	line	36
+   389                           ;i2cs-led7.c: 36: TRISA = 0b00000000;
+   390  0208  1003               	clrc
+   391  0209  1683               	bsf	status, 5	;RP0=1, select bank1
+   392  020A  1303               	bcf	status, 6	;RP2=0, select bank1
+   393                           	
+   394  020B  3000               	movlw	0
+   395  020C  1803               	btfsc	status,0
+   396  020D  3001               	movlw	1
+   397  020E  0085               	movwf	(133)^080h	;volatile
+   398                           	line	37
+   399                           ;i2cs-led7.c: 37: PORTB = 0;
+   400  020F  1003               	clrc
+   401  0210  1283               	bcf	status, 5	;RP0=0, select bank0
+   402  0211  1303               	bcf	status, 6	;RP2=0, select bank0
+   403                           	
+   404  0212  3000               	movlw	0
+   405  0213  1803               	btfsc	status,0
+   406  0214  3001               	movlw	1
+   407  0215  0086               	movwf	(6)	;volatile
+   408                           	line	38
+   409                           ;i2cs-led7.c: 38: TRISB &= 0b10010010;
+   410  0216  3092               	movlw	(092h)
+   411  0217  00A2               	movwf	(??_led7_init+0+0)
+   412  0218  1683               	bsf	status, 5	;RP0=1, select bank1
+   413  0219  1303               	bcf	status, 6	;RP2=0, select bank1
+   414                           	
+   415  021A  1283               	bcf	status, 5	;RP0=0, select bank0
+   416  021B  1303               	bcf	status, 6	;RP2=0, select bank0
+   417  021C  0822               	movf	(??_led7_init+0+0),w
+   418  021D  1683               	bsf	status, 5	;RP0=1, select bank1
+   419  021E  1303               	bcf	status, 6	;RP2=0, select bank1
+   420  021F  0586               	andwf	(134)^080h,f	;volatile
+   421                           	line	40
+   422                           ;i2cs-led7.c: 40: led7_dig = 0;
+   423  0220  1003               	clrc
+   424  0221  1283               	bcf	status, 5	;RP0=0, select bank0
+   425  0222  1303               	bcf	status, 6	;RP2=0, select bank0
+   426                           	
+   427  0223  3000               	movlw	0
+   428  0224  1803               	btfsc	status,0
+   429  0225  3001               	movlw	1
+   430  0226  00FC               	movwf	(124)
+   431                           	line	42
+   432                           ;i2cs-led7.c: 42: led7_ptn[3] = 0b11000000;
+   433  0227  30C0               	movlw	(0C0h)
+   434  0228  00A2               	movwf	(??_led7_init+0+0)
+   435                           	
+   436  0229  0822               	movf	(??_led7_init+0+0),w
+   437  022A  00FA               	movwf	0+(119)+03h
+   438                           	line	43
+   439                           ;i2cs-led7.c: 43: led7_ptn[2] = 0b11011100;
+   440  022B  30DC               	movlw	(0DCh)
+   441  022C  00A2               	movwf	(??_led7_init+0+0)
+   442                           	
+   443  022D  0822               	movf	(??_led7_init+0+0),w
+   444  022E  00F9               	movwf	0+(119)+02h
+   445                           	line	44
+   446                           ;i2cs-led7.c: 44: led7_ptn[1] = 0b10011101;
+   447  022F  309D               	movlw	(09Dh)
+   448  0230  00A2               	movwf	(??_led7_init+0+0)
+   449                           	
+   450  0231  0822               	movf	(??_led7_init+0+0),w
+   451  0232  00F8               	movwf	0+(119)+01h
+   452                           	line	45
+   453                           ;i2cs-led7.c: 45: led7_ptn[0] = 0b00100100;
+   454  0233  3024               	movlw	(024h)
+   455  0234  00A2               	movwf	(??_led7_init+0+0)
+   456                           	
+   457  0235  0822               	movf	(??_led7_init+0+0),w
+   458  0236  00F7               	movwf	(119)
+   459                           	line	47
+   460                           ;i2cs-led7.c: 47: TMR0IE = 1;
+   461  0237  168B               	bsf	(93/8),(93)&7
+   462                           	line	48
+   463                           ;i2cs-led7.c: 48: }
+   464  0238                     l23:	
+   465  0238  0008               	return
+   466                           ; =============== function _led7_init ends ====
+                                 ===========
+   467                           
+   468                           GLOBAL __end_of_led7_init
+   469  0239                     	__end_of_led7_init:
+   470                           	FNSIZE	_led7_init,1,0
+   471                           	signat	_led7_init,88
+   472                           	global	_i2cs_init
+   473                           	global	??_i2cs_init
+   474                           	global	?_i2cs_init
+   475                           
+   476                           ; *************** function _i2cs_init *********
+                                 ******
+   477                           ; Defined at:
+   478                           ;		line 68 in file "C:\pic\7seg-led\i2cs-led7.c
+                                 "
+   479                           ; Parameters:
+   480                           ;		None
+   481                           ; Auto variables:
+   482                           ;		None
+   483                           ; Return value:
+   484                           ;		type: void 
+   485                           ;		size: 0
+   486                           ; Registers used:
+   487                           ;		wreg, status,2, status,0
+   488                           ; Tracked objects:
+   489                           ;		On entry : 0/100
+   490                           ;		On exit  : 0/0
+   491                           ;		Unchanged: 0/0
+   492                           ; Data sizes:
+   493                           ;		Autos:    0
+   494                           ;		Params:   0
+   495                           ;		Temp:     0
+   496                           ;		Total:    0
+   497                           ; This function calls:
+   498                           ;		Nothing
+   499                           ; This function is called by:
+   500                           ;		_main
+   501                           ; This function uses a non-reentrant model
+   502                           ; 
+   503                           	psect	text84,local,class=CODE,delta=2
+   504                           	file	"C:\pic\7seg-led\i2cs-led7.c"
+   505                           	line	68
+   506                           ;i2cs-led7.c: 68: void i2cs_init(void){
+   507                           	
+   508  02EA                     _i2cs_init:	
+   509                           ; Regs used in _i2cs_init: [wreg+status,2+statu
+                                 s,0]
+   510                           	line	69
+   511                           ;i2cs-led7.c: 69: i2cs_stage = 0;
+   512  02EA  1003               	clrc
+   513  02EB  1283               	bcf	status, 5	;RP0=0, select bank0
+   514  02EC  1303               	bcf	status, 6	;RP2=0, select bank0
+   515                           	
+   516  02ED  3000               	movlw	0
+   517  02EE  1803               	btfsc	status,0
+   518  02EF  3001               	movlw	1
+   519  02F0  00FD               	movwf	(125)
+   520                           	line	71
+   521                           ;i2cs-led7.c: 71: TRISB1 = 1;
+   522  02F1  1683               	bsf	status, 5	;RP0=1, select bank1
+   523  02F2  1303               	bcf	status, 6	;RP2=0, select bank1
+   524  02F3  1486               	bsf	(1073/8)^080h,(1073)&7
+   525                           	line	72
+   526                           ;i2cs-led7.c: 72: TRISB4 = 1;
+   527  02F4  1606               	bsf	(1076/8)^080h,(1076)&7
+   528                           	line	73
+   529                           ;i2cs-led7.c: 73: SSPSTAT = 0b00000000;
+   530  02F5  1003               	clrc
+   531                           	
+   532  02F6  3000               	movlw	0
+   533  02F7  1803               	btfsc	status,0
+   534  02F8  3001               	movlw	1
+   535  02F9  0094               	movwf	(148)^080h	;volatile
+   536                           	line	74
+   537                           ;i2cs-led7.c: 74: SSPADD = 83 << 1;
+   538  02FA  30A6               	movlw	(0A6h)
+   539                           	
+   540  02FB  0093               	movwf	(147)^080h	;volatile
+   541                           	line	75
+   542                           ;i2cs-led7.c: 75: SSPCON = 0b00110110;
+   543  02FC  3036               	movlw	(036h)
+   544  02FD  1283               	bcf	status, 5	;RP0=0, select bank0
+   545  02FE  1303               	bcf	status, 6	;RP2=0, select bank0
+   546                           	
+   547  02FF  0094               	movwf	(20)	;volatile
+   548                           	line	77
+   549                           ;i2cs-led7.c: 77: SSPIF = 0;
+   550  0300  118C               	bcf	(99/8),(99)&7
+   551                           	line	78
+   552                           ;i2cs-led7.c: 78: SSPIE = 1;
+   553  0301  1683               	bsf	status, 5	;RP0=1, select bank1
+   554  0302  1303               	bcf	status, 6	;RP2=0, select bank1
+   555  0303  158C               	bsf	(1123/8)^080h,(1123)&7
+   556                           	line	79
+   557                           ;i2cs-led7.c: 79: }
+   558  0304                     l30:	
+   559  0304  0008               	return
+   560                           ; =============== function _i2cs_init ends ====
+                                 ===========
+   561                           
+   562                           GLOBAL __end_of_i2cs_init
+   563  0305                     	__end_of_i2cs_init:
+   564                           	FNSIZE	_i2cs_init,0,0
+   565                           	signat	_i2cs_init,88
+   566                           	global	_led7_dot
+   567                           	global	??_led7_dot
+   568                           	global	?_led7_dot
+   569                           
+   570                           ; *************** function _led7_dot **********
+                                 *****
+   571                           ; Defined at:
+   572                           ;		line 59 in file "C:\pic\7seg-led\i2cs-led7.c
+                                 "
+   573                           ; Parameters:
+   574                           ;		led7_dig    	reg:   wr	type: unsigned char 
+   575                           ; Auto variables:
+   576                           ;		led7_dig    	       	type: unsigned char 
+   577                           ; Return value:
+   578                           ;		type: void 
+   579                           ;		size: 0
+   580                           ; Registers used:
+   581                           ;		wreg, fsr, status,2, status,0
+   582                           ; Tracked objects:
+   583                           ;		On entry : 300/0
+   584                           ;		On exit  : 0/0
+   585                           ;		Unchanged: 0/0
+   586                           ; Data sizes:
+   587                           ;		Autos:    1
+   588                           ;		Params:   0
+   589                           ;		Temp:     1
+   590                           ;		Total:    2
+   591                           ; This function calls:
+   592                           ;		Nothing
+   593                           ; This function is called by:
+   594                           ;		_i2cs_sync
+   595                           ; This function uses a non-reentrant model
+   596                           ; 
+   597                           	psect	text85,local,class=CODE,delta=2
+   598                           	file	"C:\pic\7seg-led\i2cs-led7.c"
+   599                           	line	59
+   600                           ;i2cs-led7.c: 59: void led7_dot(unsigned char l
+                                 ed7_dig){
+   601                           	
+   602  02B2                     _led7_dot:	
+   603                           ; Regs used in _led7_dot: [wreg+fsr+status,2+st
+                                 atus,0]
+   604                           ;_led7_dot_led7_dig stored from wreg
+   605                           	
+   606  02B2  00A4               	movwf	(_led7_dot_led7_dig)
+   607                           	line	60
+   608                           ;i2cs-led7.c: 60: led7_ptn[0] &= 0b11011111;
+   609  02B3  30DF               	movlw	(0DFh)
+   610  02B4  00A5               	movwf	(??_led7_dot+1+0)
+   611                           	
+   612  02B5  0825               	movf	(??_led7_dot+1+0),w
+   613  02B6  05F7               	andwf	(119),f
+   614                           	line	61
+   615                           ;i2cs-led7.c: 61: led7_ptn[1] &= 0b11011111;
+   616  02B7  30DF               	movlw	(0DFh)
+   617  02B8  00A5               	movwf	(??_led7_dot+1+0)
+   618                           	
+   619  02B9  0825               	movf	(??_led7_dot+1+0),w
+   620  02BA  05F8               	andwf	0+(119)+01h,f
+   621                           	line	62
+   622                           ;i2cs-led7.c: 62: led7_ptn[2] &= 0b11011111;
+   623  02BB  30DF               	movlw	(0DFh)
+   624  02BC  00A5               	movwf	(??_led7_dot+1+0)
+   625                           	
+   626  02BD  0825               	movf	(??_led7_dot+1+0),w
+   627  02BE  05F9               	andwf	0+(119)+02h,f
+   628                           	line	63
+   629                           ;i2cs-led7.c: 63: led7_ptn[3] &= 0b11011111;
+   630  02BF  30DF               	movlw	(0DFh)
+   631  02C0  00A5               	movwf	(??_led7_dot+1+0)
+   632                           	
+   633  02C1  0825               	movf	(??_led7_dot+1+0),w
+   634  02C2  05FA               	andwf	0+(119)+03h,f
+   635                           	line	64
+   636                           ;i2cs-led7.c: 64: if(led7_dig < 4)
+   637  02C3  3004               	movlw	(04h)
+   638                           	
+   639  02C4  0224               	subwf	(_led7_dot_led7_dig),w
+   640  02C5  1803               	skipnc
+   641  02C6  2AC8               	goto	u1751
+   642  02C7  2AC9               	goto	u1750
+   643  02C8                     u1751:
+   644  02C8  2ACE               	goto	l29
+   645  02C9                     u1750:
+   646                           	line	65
+   647                           ;i2cs-led7.c: 65: led7_ptn[led7_dig] |= 0b00100
+                                 000;
+   648                           	
+   649  02C9  0824               	movf	(_led7_dot_led7_dig),w
+   650  02CA  1383               	bcf	status, 7	;select IRP bank0
+   651                           	
+   652  02CB  3E77               	addlw	119&0ffh
+   653  02CC  0084               	movwf	fsr
+   654                           	
+   655  02CD  1680               	bsf	indf+(5/8),(5)&7
+   656                           	
+   657  02CE                     l29:	
+   658                           	line	66
+   659                           ;i2cs-led7.c: 66: }
+   660  02CE                     l28:	
+   661  02CE  0008               	return
+   662                           ; =============== function _led7_dot ends =====
+                                 ==========
+   663                           
+   664                           GLOBAL __end_of_led7_dot
+   665  02CF                     	__end_of_led7_dot:
+   666                           	FNSIZE	_led7_dot,2,0
+   667                           	signat	_led7_dot,4216
+   668                           	global	_led7_putui
+   669                           	global	??_led7_putui
+   670                           	global	?_led7_putui
+   671                           
+   672                           ; *************** function _led7_putui ********
+                                 *******
+   673                           ; Defined at:
+   674                           ;		line 50 in file "C:\pic\7seg-led\i2cs-led7.c
+                                 "
+   675                           ; Parameters:
+   676                           ;		ui          	offs:   0	type: unsigned int 
+   677                           ; Auto variables:
+   678                           ;		i           	       	type: unsigned char 
+   679                           ; Return value:
+   680                           ;		type: void 
+   681                           ;		size: 0
+   682                           ; Registers used:
+   683                           ;		wreg, fsr, status,2, status,0, pclath, cstac
+                                 k
+   684                           ; Tracked objects:
+   685                           ;		On entry : 300/0
+   686                           ;		On exit  : 0/0
+   687                           ;		Unchanged: 0/0
+   688                           ; Data sizes:
+   689                           ;		Autos:    1
+   690                           ;		Params:   2
+   691                           ;		Temp:     1
+   692                           ;		Total:    4
+   693                           ; This function calls:
+   694                           ;		___lwmod
+   695                           ;		___lwdiv
+   696                           ; This function is called by:
+   697                           ;		_i2cs_sync
+   698                           ; This function uses a non-reentrant model
+   699                           ; 
+   700                           	psect	text86,local,class=CODE,delta=2
+   701                           	file	"C:\pic\7seg-led\i2cs-led7.c"
+   702                           	line	50
+   703                           ;i2cs-led7.c: 50: void led7_putui(unsigned int 
+                                 ui){
+   704                           	
+   705  0239                     _led7_putui:	
+   706                           ; Regs used in _led7_putui: [wreg+fsr+status,2+
+                                 status,0+pclath+cstack]
+   707                           	line	53
+   708                           ;i2cs-led7.c: 51: unsigned char i;
+   709                           ;i2cs-led7.c: 53: for(i = 0; i < 4; i++){
+   710  0239  1003               	clrc
+   711                           	
+   712  023A  3000               	movlw	0
+   713  023B  1803               	btfsc	status,0
+   714  023C  3001               	movlw	1
+   715  023D  00A6               	movwf	(_led7_putui_i)
+   716  023E  2A3F               	goto	l25
+   717                           	
+   718  023F                     l25:	
+   719                           	line	54
+   720                           ;i2cs-led7.c: 54: led7_ptn[i] = font7s[ui % 10]
+                                 ;
+   721  023F  300A               	movlw	low(0Ah)
+   722                           	
+   723  0240  00AA               	movwf	(0+?___lwmod+02h)&07fh
+   724  0241  3000               	movlw	high(0Ah)
+   725  0242  00AB               	movwf	((0+?___lwmod+02h)&07fh)+1
+   726                           	
+   727                           	
+   728  0243  0824               	movf	(_led7_putui_ui),w
+   729  0244  01A8               	clrf	(?___lwmod)
+   730  0245  07A8               	addwf	(?___lwmod)
+   731  0246  0825               	movf	(_led7_putui_ui+1),w
+   732  0247  01A9               	clrf	(?___lwmod+1)
+   733  0248  07A9               	addwf	(?___lwmod+1)
+   734  0249  118A  227A  118A   	fcall	___lwmod
+   735  024C  1283               	bcf	status, 5	;RP0=0, select bank0
+   736  024D  1303               	bcf	status, 6	;RP2=0, select bank0
+   737  024E  0828               	movf	(0+?___lwmod),w
+   738                           	
+   739  024F  3E01               	addlw	(_font7s-__stringbase)
+   740  0250  118A  2109  118A   	fcall	stringdir
+   741  0253  00A7               	movwf	(??_led7_putui+1+0)
+   742                           	
+   743  0254  0826               	movf	(_led7_putui_i),w
+   744  0255  1383               	bcf	status, 7	;select IRP bank0
+   745                           	
+   746  0256  3E77               	addlw	119&0ffh
+   747  0257  0084               	movwf	fsr
+   748                           	
+   749  0258  0827               	movf	(??_led7_putui+1+0),w
+   750  0259  0080               	movwf	indf
+   751                           	line	55
+   752                           ;i2cs-led7.c: 55: ui /= 10;
+   753  025A  300A               	movlw	low(0Ah)
+   754                           	
+   755  025B  00AA               	movwf	(0+?___lwdiv+02h)&07fh
+   756  025C  3000               	movlw	high(0Ah)
+   757  025D  00AB               	movwf	((0+?___lwdiv+02h)&07fh)+1
+   758                           	
+   759                           	
+   760  025E  0824               	movf	(_led7_putui_ui),w
+   761  025F  01A8               	clrf	(?___lwdiv)
+   762  0260  07A8               	addwf	(?___lwdiv)
+   763  0261  0825               	movf	(_led7_putui_ui+1),w
+   764  0262  01A9               	clrf	(?___lwdiv+1)
+   765  0263  07A9               	addwf	(?___lwdiv+1)
+   766  0264  118A  21A7  118A   	fcall	___lwdiv
+   767  0267  1283               	bcf	status, 5	;RP0=0, select bank0
+   768  0268  1303               	bcf	status, 6	;RP2=0, select bank0
+   769                           	
+   770  0269  0828               	movf	(0+?___lwdiv),w
+   771  026A  01A4               	clrf	(_led7_putui_ui)
+   772  026B  07A4               	addwf	(_led7_putui_ui)
+   773  026C  0829               	movf	(1+?___lwdiv),w
+   774  026D  01A5               	clrf	(_led7_putui_ui+1)
+   775  026E  07A5               	addwf	(_led7_putui_ui+1)
+   776                           	line	53
+   777  026F  3001               	movlw	(01h)
+   778  0270  00A7               	movwf	(??_led7_putui+1+0)
+   779                           	
+   780  0271  0827               	movf	(??_led7_putui+1+0),w
+   781  0272  07A6               	addwf	(_led7_putui_i),f
+   782  0273  3004               	movlw	(04h)
+   783                           	
+   784  0274  0226               	subwf	(_led7_putui_i),w
+   785  0275  1C03               	skipc
+   786  0276  2A78               	goto	u1601
+   787  0277  2A79               	goto	u1600
+   788  0278                     u1601:
+   789  0278  2A3F               	goto	l25
+   790  0279                     u1600:
+   791                           	
+   792  0279                     l26:	
+   793                           	line	57
+   794                           ;i2cs-led7.c: 56: }
+   795                           ;i2cs-led7.c: 57: }
+   796  0279                     l24:	
+   797  0279  0008               	return
+   798                           ; =============== function _led7_putui ends ===
+                                 ============
+   799                           
+   800                           GLOBAL __end_of_led7_putui
+   801  027A                     	__end_of_led7_putui:
+   802                           	FNSIZE	_led7_putui,2,2
+   803                           	signat	_led7_putui,4216
+   804                           	global	___lwmod
+   805                           	global	??___lwmod
+   806                           	global	?___lwmod
+   807                           
+   808                           ; *************** function ___lwmod ***********
+                                 ****
+   809                           ; Defined at:
+   810                           ;		line 5 in file "C:\Program Files\HI-TECH Sof
+                                 tware\PICC\PRO\9.60\sources\lwmod.c"
+   811                           ; Parameters:
+   812                           ;		dividend    	offs:   0	type: unsigned int 
+   813                           ;		divisor     	offs:   2	type: unsigned int 
+   814                           ; Auto variables:
+   815                           ;		counter     	       	type: unsigned char 
+   816                           ; Return value:
+   817                           ;		type: unsigned int 
+   818                           ;		size: 2
+   819                           ; Registers used:
+   820                           ;		wreg, status,2, status,0
+   821                           ; Tracked objects:
+   822                           ;		On entry : 300/0
+   823                           ;		On exit  : 0/0
+   824                           ;		Unchanged: 0/0
+   825                           ; Data sizes:
+   826                           ;		Autos:    1
+   827                           ;		Params:   4
+   828                           ;		Temp:     1
+   829                           ;		Total:    6
+   830                           ; This function calls:
+   831                           ;		Nothing
+   832                           ; This function is called by:
+   833                           ;		_led7_putui
+   834                           ; This function uses a non-reentrant model
+   835                           ; 
+   836                           	psect	text87,local,class=CODE,delta=2
+   837                           	file	"C:\Program Files\HI-TECH Software\PICC\P
+                                 RO\9.60\sources\lwmod.c"
+   838                           	line	5
+   839                           	
+   840  027A                     ___lwmod:	
+   841                           ; Regs used in ___lwmod: [wreg+status,2+status,
+                                 0]
+   842                           	line	8
+   843                           	
+   844  027A  082B               	movf	((___lwmod_divisor+1))&07fh,w
+   845  027B  042A               	iorwf	((___lwmod_divisor))&07fh,w
+   846  027C  1903               	skipnz
+   847  027D  2A7F               	goto	u1691
+   848  027E  2A80               	goto	u1690
+   849  027F                     u1691:
+   850  027F  2AB0               	goto	l67
+   851  0280                     u1690:
+   852                           	line	9
+   853                           	
+   854  0280  01AC               	clrf	(___lwmod_counter)
+   855  0281  1403               	bsf	status,0
+   856  0282  0DAC               	rlf	(___lwmod_counter),f
+   857                           	line	10
+   858  0283  2A8F               	goto	l68
+   859                           	
+   860  0284                     l69:	
+   861                           	line	11
+   862                           	
+   863  0284  3001               	movlw	01h
+   864  0285                     u1705:
+   865  0285  1003               	clrc
+   866  0286  0DAA               	rlf	(___lwmod_divisor),f
+   867  0287  0DAB               	rlf	(___lwmod_divisor+1),f
+   868  0288  3EFF               	addlw	-1
+   869  0289  1D03               	skipz
+   870  028A  2A85               	goto	u1705
+   871                           	line	12
+   872  028B  3001               	movlw	(01h)
+   873  028C  00AD               	movwf	(??___lwmod+1+0)
+   874                           	
+   875  028D  082D               	movf	(??___lwmod+1+0),w
+   876  028E  07AC               	addwf	(___lwmod_counter),f
+   877                           	line	13
+   878                           	
+   879  028F                     l68:	
+   880                           	line	10
+   881                           	
+   882  028F  1FAB               	btfss	(___lwmod_divisor+1),(15)&7
+   883  0290  2A92               	goto	u1711
+   884  0291  2A93               	goto	u1710
+   885  0292                     u1711:
+   886  0292  2A84               	goto	l69
+   887  0293                     u1710:
+   888                           	
+   889  0293                     l70:	
+   890                           	line	14
+   891                           	
+   892  0293                     l73:	
+   893                           	line	15
+   894                           	
+   895                           	
+   896  0293  082B               	movf	(___lwmod_divisor+1),w
+   897  0294  0229               	subwf	(___lwmod_dividend+1),w
+   898  0295  1D03               	skipz
+   899  0296  2A99               	goto	u1725
+   900  0297  082A               	movf	(___lwmod_divisor),w
+   901  0298  0228               	subwf	(___lwmod_dividend),w
+   902  0299                     u1725:
+   903  0299  1C03               	skipc
+   904  029A  2A9C               	goto	u1721
+   905  029B  2A9D               	goto	u1720
+   906  029C                     u1721:
+   907  029C  2AA3               	goto	l74
+   908  029D                     u1720:
+   909                           	line	16
+   910                           	
+   911                           	
+   912  029D  082A               	movf	(___lwmod_divisor),w
+   913  029E  02A8               	subwf	(___lwmod_dividend),f
+   914  029F  082B               	movf	(___lwmod_divisor+1),w
+   915  02A0  1C03               	skipc
+   916  02A1  03A9               	decf	(___lwmod_dividend+1),f
+   917  02A2  02A9               	subwf	(___lwmod_dividend+1),f
+   918                           	
+   919  02A3                     l74:	
+   920                           	line	17
+   921                           	
+   922  02A3  3001               	movlw	01h
+   923  02A4                     u1735:
+   924  02A4  1003               	clrc
+   925  02A5  0CAB               	rrf	(___lwmod_divisor+1),f
+   926  02A6  0CAA               	rrf	(___lwmod_divisor),f
+   927  02A7  3EFF               	addlw	-1
+   928  02A8  1D03               	skipz
+   929  02A9  2AA4               	goto	u1735
+   930                           	line	18
+   931                           	
+   932                           	
+   933  02AA  3001               	movlw	low(01h)
+   934  02AB  02AC               	subwf	(___lwmod_counter),f
+   935  02AC  1D03               	btfss	status,2
+   936  02AD  2AAF               	goto	u1741
+   937  02AE  2AB0               	goto	u1740
+   938  02AF                     u1741:
+   939  02AF  2A93               	goto	l73
+   940  02B0                     u1740:
+   941                           	
+   942  02B0                     l72:	
+   943                           	line	19
+   944                           	
+   945  02B0                     l67:	
+   946                           	line	20
+   947  02B0  2AB1               	goto	l66
+   948                           	line	21
+   949  02B1                     l66:	
+   950  02B1  0008               	return
+   951                           ; =============== function ___lwmod ends ======
+                                 =========
+   952                           
+   953                           GLOBAL __end_of___lwmod
+   954  02B2                     	__end_of___lwmod:
+   955                           	FNSIZE	___lwmod,2,4
+   956                           	signat	___lwmod,8314
+   957                           	global	___lwdiv
+   958                           	global	??___lwdiv
+   959                           	global	?___lwdiv
+   960                           
+   961                           ; *************** function ___lwdiv ***********
+                                 ****
+   962                           ; Defined at:
+   963                           ;		line 5 in file "C:\Program Files\HI-TECH Sof
+                                 tware\PICC\PRO\9.60\sources\lwdiv.c"
+   964                           ; Parameters:
+   965                           ;		dividend    	offs:   0	type: unsigned int 
+   966                           ;		divisor     	offs:   2	type: unsigned int 
+   967                           ; Auto variables:
+   968                           ;		counter     	       	type: unsigned char 
+   969                           ;		quotient    	       	type: unsigned int 
+   970                           ; Return value:
+   971                           ;		type: unsigned int 
+   972                           ;		size: 2
+   973                           ; Registers used:
+   974                           ;		wreg, status,2, status,0
+   975                           ; Tracked objects:
+   976                           ;		On entry : B00/0
+   977                           ;		On exit  : 0/0
+   978                           ;		Unchanged: 0/0
+   979                           ; Data sizes:
+   980                           ;		Autos:    3
+   981                           ;		Params:   4
+   982                           ;		Temp:     1
+   983                           ;		Total:    8
+   984                           ; This function calls:
+   985                           ;		Nothing
+   986                           ; This function is called by:
+   987                           ;		_led7_putui
+   988                           ; This function uses a non-reentrant model
+   989                           ; 
+   990                           	psect	text88,local,class=CODE,delta=2
+   991                           	file	"C:\Program Files\HI-TECH Software\PICC\P
+                                 RO\9.60\sources\lwdiv.c"
+   992                           	line	5
+   993                           	
+   994  01A7                     ___lwdiv:	
+   995                           ; Regs used in ___lwdiv: [wreg+status,2+status,
+                                 0]
+   996                           	line	9
+   997  01A7  3000               	movlw	low(0)
+   998                           	
+   999  01A8  00AD               	movwf	(___lwdiv_quotient)
+  1000  01A9  3000               	movlw	high(0)
+  1001  01AA  00AE               	movwf	((___lwdiv_quotient))+1
+  1002                           	line	10
+  1003                           	
+  1004  01AB  082B               	movf	((___lwdiv_divisor+1))&07fh,w
+  1005  01AC  042A               	iorwf	((___lwdiv_divisor))&07fh,w
+  1006  01AD  1903               	skipnz
+  1007  01AE  29B0               	goto	u1621
+  1008  01AF  29B1               	goto	u1620
+  1009  01B0                     u1621:
+  1010  01B0  29E9               	goto	l58
+  1011  01B1                     u1620:
+  1012                           	line	11
+  1013                           	
+  1014  01B1  01AC               	clrf	(___lwdiv_counter)
+  1015  01B2  1403               	bsf	status,0
+  1016  01B3  0DAC               	rlf	(___lwdiv_counter),f
+  1017                           	line	12
+  1018  01B4  29C0               	goto	l59
+  1019                           	
+  1020  01B5                     l60:	
+  1021                           	line	13
+  1022                           	
+  1023  01B5  3001               	movlw	01h
+  1024  01B6                     u1635:
+  1025  01B6  1003               	clrc
+  1026  01B7  0DAA               	rlf	(___lwdiv_divisor),f
+  1027  01B8  0DAB               	rlf	(___lwdiv_divisor+1),f
+  1028  01B9  3EFF               	addlw	-1
+  1029  01BA  1D03               	skipz
+  1030  01BB  29B6               	goto	u1635
+  1031                           	line	14
+  1032  01BC  3001               	movlw	(01h)
+  1033  01BD  00AF               	movwf	(??___lwdiv+3+0)
+  1034                           	
+  1035  01BE  082F               	movf	(??___lwdiv+3+0),w
+  1036  01BF  07AC               	addwf	(___lwdiv_counter),f
+  1037                           	line	15
+  1038                           	
+  1039  01C0                     l59:	
+  1040                           	line	12
+  1041                           	
+  1042  01C0  1FAB               	btfss	(___lwdiv_divisor+1),(15)&7
+  1043  01C1  29C3               	goto	u1641
+  1044  01C2  29C4               	goto	u1640
+  1045  01C3                     u1641:
+  1046  01C3  29B5               	goto	l60
+  1047  01C4                     u1640:
+  1048                           	
+  1049  01C4                     l61:	
+  1050                           	line	16
+  1051                           	
+  1052  01C4                     l64:	
+  1053                           	line	17
+  1054                           	
+  1055  01C4  3001               	movlw	01h
+  1056  01C5                     u1655:
+  1057  01C5  1003               	clrc
+  1058  01C6  0DAD               	rlf	(___lwdiv_quotient),f
+  1059  01C7  0DAE               	rlf	(___lwdiv_quotient+1),f
+  1060  01C8  3EFF               	addlw	-1
+  1061  01C9  1D03               	skipz
+  1062  01CA  29C5               	goto	u1655
+  1063                           	line	18
+  1064                           	
+  1065                           	
+  1066  01CB  082B               	movf	(___lwdiv_divisor+1),w
+  1067  01CC  0229               	subwf	(___lwdiv_dividend+1),w
+  1068  01CD  1D03               	skipz
+  1069  01CE  29D1               	goto	u1665
+  1070  01CF  082A               	movf	(___lwdiv_divisor),w
+  1071  01D0  0228               	subwf	(___lwdiv_dividend),w
+  1072  01D1                     u1665:
+  1073  01D1  1C03               	skipc
+  1074  01D2  29D4               	goto	u1661
+  1075  01D3  29D5               	goto	u1660
+  1076  01D4                     u1661:
+  1077  01D4  29DC               	goto	l65
+  1078  01D5                     u1660:
+  1079                           	line	19
+  1080                           	
+  1081                           	
+  1082  01D5  082A               	movf	(___lwdiv_divisor),w
+  1083  01D6  02A8               	subwf	(___lwdiv_dividend),f
+  1084  01D7  082B               	movf	(___lwdiv_divisor+1),w
+  1085  01D8  1C03               	skipc
+  1086  01D9  03A9               	decf	(___lwdiv_dividend+1),f
+  1087  01DA  02A9               	subwf	(___lwdiv_dividend+1),f
+  1088                           	line	20
+  1089                           	
+  1090  01DB  142D               	bsf	(___lwdiv_quotient)+(0/8),(0)&7
+  1091                           	line	21
+  1092                           	
+  1093  01DC                     l65:	
+  1094                           	line	22
+  1095                           	
+  1096  01DC  3001               	movlw	01h
+  1097  01DD                     u1675:
+  1098  01DD  1003               	clrc
+  1099  01DE  0CAB               	rrf	(___lwdiv_divisor+1),f
+  1100  01DF  0CAA               	rrf	(___lwdiv_divisor),f
+  1101  01E0  3EFF               	addlw	-1
+  1102  01E1  1D03               	skipz
+  1103  01E2  29DD               	goto	u1675
+  1104                           	line	23
+  1105                           	
+  1106                           	
+  1107  01E3  3001               	movlw	low(01h)
+  1108  01E4  02AC               	subwf	(___lwdiv_counter),f
+  1109  01E5  1D03               	btfss	status,2
+  1110  01E6  29E8               	goto	u1681
+  1111  01E7  29E9               	goto	u1680
+  1112  01E8                     u1681:
+  1113  01E8  29C4               	goto	l64
+  1114  01E9                     u1680:
+  1115                           	
+  1116  01E9                     l63:	
+  1117                           	line	24
+  1118                           	
+  1119  01E9                     l58:	
+  1120                           	line	25
+  1121                           	
+  1122                           	
+  1123  01E9  082D               	movf	(___lwdiv_quotient),w
+  1124  01EA  01A8               	clrf	(?___lwdiv)
+  1125  01EB  07A8               	addwf	(?___lwdiv)
+  1126  01EC  082E               	movf	(___lwdiv_quotient+1),w
+  1127  01ED  01A9               	clrf	(?___lwdiv+1)
+  1128  01EE  07A9               	addwf	(?___lwdiv+1)
+  1129  01EF  29F0               	goto	l57
+  1130                           	line	26
+  1131  01F0                     l57:	
+  1132  01F0  0008               	return
+  1133                           ; =============== function ___lwdiv ends ======
+                                 =========
+  1134                           
+  1135                           GLOBAL __end_of___lwdiv
+  1136  01F1                     	__end_of___lwdiv:
+  1137                           	FNSIZE	___lwdiv,4,4
+  1138                           	signat	___lwdiv,8314
+  1139                           	global	_entry
+  1140                           	global	??_entry
+  1141                           	global	?_entry
+  1142                           
+  1143                           ; *************** function _entry *************
+                                 **
+  1144                           ; Defined at:
+  1145                           ;		line 88 in file "C:\pic\7seg-led\i2cs-led7.c
+                                 "
+  1146                           ; Parameters:
+  1147                           ;		None
+  1148                           ; Auto variables:
+  1149                           ;		None
+  1150                           ; Return value:
+  1151                           ;		type: void 
+  1152                           ;		size: 0
+  1153                           ; Registers used:
+  1154                           ;		wreg, fsr, status,2, status,0, pclath
+  1155                           ; Tracked objects:
+  1156                           ;		On entry : 300/0
+  1157                           ;		On exit  : 0/0
+  1158                           ;		Unchanged: 0/0
+  1159                           ; Data sizes:
+  1160                           ;		Autos:    0
+  1161                           ;		Params:   0
+  1162                           ;		Temp:     5
+  1163                           ;		Total:    5
+  1164                           ; This function calls:
+  1165                           ;		Nothing
+  1166                           ; This function is called by:
+  1167                           ;		Interrupt level 1
+  1168                           ; This function uses a non-reentrant model
+  1169                           ; 
+  1170                           	psect	intrtext,class=CODE,delta=2
+  1171                           	file	"C:\pic\7seg-led\i2cs-led7.c"
+  1172                           	line	88
+  1173                           ;i2cs-led7.c: 88: void interrupt entry(void){
+  1174                           	
+  1175  011D                     _entry:	
+  1176                           ; Regs used in _entry: [wreg+fsr+status,2+statu
+                                 s,0+pclath]
+  1177                           	psect	intentry,class=CODE,delta=2
+  1178                           global interrupt_function
+  1179  0004                     interrupt_function:
+  1180                           	global saved_w
+  1181  0000                     	saved_w	set	btemp+1
+  1182  0004  00FF               	movwf	saved_w
+  1183  0005  0803               	movf	status,w
+  1184  0006  1283               	bcf	status, 5	;RP0=0, select bank0
+  1185  0007  1303               	bcf	status, 6	;RP2=0, select bank0
+  1186  0008  00B1               	movwf	(??_entry+1)
+  1187  0009  0804               	movf	fsr,w
+  1188  000A  00B2               	movwf	(??_entry+2)
+  1189  000B  080A               	movf	pclath,w
+  1190  000C  00B3               	movwf	(??_entry+3)
+  1191  000D  087E               	movf	btemp+0,w
+  1192  000E  00B4               	movwf	(??_entry+4)
+  1193  000F  118A  291D         	ljmp	_entry
+  1194                           	psect	intrtext
+  1195                           	line	89
+  1196                           ;i2cs-led7.c: 89: if(TMR0IF){
+  1197  011D  1D0B               	btfss	(90/8),(90)&7
+  1198  011E  2920               	goto	i1u1491
+  1199  011F  2921               	goto	i1u1490
+  1200  0120                     i1u1491:
+  1201  0120  294A               	goto	i1l33
+  1202  0121                     i1u1490:
+  1203                           	line	90
+  1204                           ;i2cs-led7.c: 90: TMR0IF = 0;
+  1205  0121  110B               	bcf	(90/8),(90)&7
+  1206                           	line	92
+  1207                           ;i2cs-led7.c: 92: PORTB &= ~led7_sel[led7_dig];
+  1208                           	
+  1209  0122  087C               	movf	(124),w
+  1210                           	
+  1211  0123  3E0B               	addlw	(_led7_sel-__stringbase)
+  1212  0124  118A  2109  118A   	fcall	stringdir
+  1213  0127  3AFF               	xorlw	0ffh
+  1214  0128  00B0               	movwf	(??_entry+0+0)
+  1215                           	
+  1216  0129  0830               	movf	(??_entry+0+0),w
+  1217  012A  0586               	andwf	(6),f	;volatile
+  1218                           	line	93
+  1219                           ;i2cs-led7.c: 93: RB2 = 0;
+  1220  012B  1106               	bcf	(50/8),(50)&7
+  1221                           	line	95
+  1222                           ;i2cs-led7.c: 95: led7_dig++;
+  1223  012C  3001               	movlw	(01h)
+  1224  012D  00B0               	movwf	(??_entry+0+0)
+  1225                           	
+  1226  012E  0830               	movf	(??_entry+0+0),w
+  1227  012F  07FC               	addwf	(124),f
+  1228                           	line	96
+  1229                           ;i2cs-led7.c: 96: led7_dig &= 0b00000011;
+  1230  0130  3003               	movlw	(03h)
+  1231  0131  00B0               	movwf	(??_entry+0+0)
+  1232                           	
+  1233  0132  0830               	movf	(??_entry+0+0),w
+  1234  0133  05FC               	andwf	(124),f
+  1235                           	line	97
+  1236                           ;i2cs-led7.c: 97: PORTA = led7_ptn[led7_dig];
+  1237                           	
+  1238  0134  087C               	movf	(124),w
+  1239                           	
+  1240  0135  3E77               	addlw	119&0ffh
+  1241  0136  0084               	movwf	fsr
+  1242                           	
+  1243  0137  0800               	movf	indf,w
+  1244                           	
+  1245                           	
+  1246  0138  0085               	movwf	(5)	;volatile
+  1247                           	line	99
+  1248                           ;i2cs-led7.c: 99: if(led7_ptn[led7_dig] & 0b001
+                                 00000)
+  1249                           	
+  1250  0139  087C               	movf	(124),w
+  1251                           	
+  1252  013A  3E77               	addlw	119&0ffh
+  1253  013B  0084               	movwf	fsr
+  1254                           	
+  1255  013C  1E80               	btfss	indf,(5)&7
+  1256  013D  293F               	goto	i1u1501
+  1257  013E  2940               	goto	i1u1500
+  1258  013F                     i1u1501:
+  1259  013F  2941               	goto	i1l34
+  1260  0140                     i1u1500:
+  1261                           	line	100
+  1262                           ;i2cs-led7.c: 100: RB2 = 1;
+  1263  0140  1506               	bsf	(50/8),(50)&7
+  1264                           	
+  1265  0141                     i1l34:	
+  1266                           	line	102
+  1267                           ;i2cs-led7.c: 102: PORTB |= led7_sel[led7_dig];
+  1268                           	
+  1269  0141  087C               	movf	(124),w
+  1270                           	
+  1271  0142  3E0B               	addlw	(_led7_sel-__stringbase)
+  1272  0143  118A  2109  118A   	fcall	stringdir
+  1273  0146  00B0               	movwf	(??_entry+0+0)
+  1274                           	
+  1275  0147  0830               	movf	(??_entry+0+0),w
+  1276  0148  0486               	iorwf	(6),f	;volatile
+  1277                           	line	103
+  1278                           ;i2cs-led7.c: 103: }
+  1279  0149  299C               	goto	i1l35
+  1280                           	line	104
+  1281                           	
+  1282  014A                     i1l33:	
+  1283                           	line	105
+  1284                           ;i2cs-led7.c: 104: else
+  1285                           ;i2cs-led7.c: 105: if(SSPIF){
+  1286  014A  1D8C               	btfss	(99/8),(99)&7
+  1287  014B  294D               	goto	i1u1511
+  1288  014C  294E               	goto	i1u1510
+  1289  014D                     i1u1511:
+  1290  014D  299C               	goto	i1l35
+  1291  014E                     i1u1510:
+  1292                           	line	106
+  1293                           ;i2cs-led7.c: 106: SSPIF = 0;
+  1294  014E  118C               	bcf	(99/8),(99)&7
+  1295                           	line	108
+  1296                           ;i2cs-led7.c: 108: if(DA == 0){
+  1297  014F  1683               	bsf	status, 5	;RP0=1, select bank1
+  1298  0150  1303               	bcf	status, 6	;RP2=0, select bank1
+  1299  0151  1A94               	btfsc	(1189/8)^080h,(1189)&7
+  1300  0152  2954               	goto	i1u1521
+  1301  0153  2955               	goto	i1u1520
+  1302  0154                     i1u1521:
+  1303  0154  2972               	goto	i1l37
+  1304  0155                     i1u1520:
+  1305                           	line	109
+  1306                           ;i2cs-led7.c: 109: i2cs_dummy = SSPBUF;
+  1307  0155  1283               	bcf	status, 5	;RP0=0, select bank0
+  1308  0156  1303               	bcf	status, 6	;RP2=0, select bank0
+  1309                           	
+  1310  0157  0813               	movf	(19),w	;volatile
+  1311                           	
+  1312  0158  00B0               	movwf	(??_entry+0+0)
+  1313                           	
+  1314  0159  0830               	movf	(??_entry+0+0),w
+  1315  015A  00FB               	movwf	(123)
+  1316                           	line	110
+  1317                           ;i2cs-led7.c: 110: if(RW == 0){
+  1318  015B  1683               	bsf	status, 5	;RP0=1, select bank1
+  1319  015C  1303               	bcf	status, 6	;RP2=0, select bank1
+  1320  015D  1914               	btfsc	(1186/8)^080h,(1186)&7
+  1321  015E  2960               	goto	i1u1531
+  1322  015F  2961               	goto	i1u1530
+  1323  0160                     i1u1531:
+  1324  0160  2969               	goto	i1l38
+  1325  0161                     i1u1530:
+  1326                           	line	111
+  1327                           ;i2cs-led7.c: 111: i2cs_stage = 0;
+  1328  0161  1003               	clrc
+  1329  0162  1283               	bcf	status, 5	;RP0=0, select bank0
+  1330  0163  1303               	bcf	status, 6	;RP2=0, select bank0
+  1331                           	
+  1332  0164  3000               	movlw	0
+  1333  0165  1803               	btfsc	status,0
+  1334  0166  3001               	movlw	1
+  1335  0167  00FD               	movwf	(125)
+  1336                           	line	112
+  1337                           ;i2cs-led7.c: 112: } else {
+  1338  0168  2971               	goto	i1l39
+  1339                           	
+  1340  0169                     i1l38:	
+  1341                           	line	113
+  1342                           ;i2cs-led7.c: 113: SSPBUF = 0;
+  1343  0169  1003               	clrc
+  1344  016A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1345  016B  1303               	bcf	status, 6	;RP2=0, select bank0
+  1346                           	
+  1347  016C  3000               	movlw	0
+  1348  016D  1803               	btfsc	status,0
+  1349  016E  3001               	movlw	1
+  1350  016F  0093               	movwf	(19)	;volatile
+  1351                           	line	114
+  1352                           ;i2cs-led7.c: 114: CKP = 1;
+  1353  0170  1614               	bsf	(164/8),(164)&7
+  1354                           	line	115
+  1355                           	
+  1356  0171                     i1l39:	
+  1357                           	line	116
+  1358                           ;i2cs-led7.c: 115: }
+  1359                           ;i2cs-led7.c: 116: } else {
+  1360  0171  299C               	goto	i1l35
+  1361                           	
+  1362  0172                     i1l37:	
+  1363                           	line	117
+  1364                           ;i2cs-led7.c: 117: if(BF){
+  1365  0172  1C14               	btfss	(1184/8)^080h,(1184)&7
+  1366  0173  2975               	goto	i1u1541
+  1367  0174  2976               	goto	i1u1540
+  1368  0175                     i1u1541:
+  1369  0175  298F               	goto	i1l41
+  1370  0176                     i1u1540:
+  1371                           	line	118
+  1372                           ;i2cs-led7.c: 118: if(i2cs_stage < 3){
+  1373  0176  3003               	movlw	(03h)
+  1374  0177  1283               	bcf	status, 5	;RP0=0, select bank0
+  1375  0178  1303               	bcf	status, 6	;RP2=0, select bank0
+  1376                           	
+  1377  0179  027D               	subwf	(125),w
+  1378  017A  1803               	skipnc
+  1379  017B  297D               	goto	i1u1551
+  1380  017C  297E               	goto	i1u1550
+  1381  017D                     i1u1551:
+  1382  017D  298A               	goto	i1l42
+  1383  017E                     i1u1550:
+  1384                           	line	119
+  1385                           ;i2cs-led7.c: 119: i2cs_d[i2cs_stage++] = SSPBU
+                                 F;
+  1386                           	
+  1387  017E  0813               	movf	(19),w	;volatile
+  1388                           	
+  1389  017F  00B0               	movwf	(??_entry+0+0)
+  1390                           	
+  1391  0180  087D               	movf	(125),w
+  1392                           	
+  1393  0181  3E74               	addlw	116&0ffh
+  1394  0182  0084               	movwf	fsr
+  1395                           	
+  1396  0183  0830               	movf	(??_entry+0+0),w
+  1397  0184  0080               	movwf	indf
+  1398  0185  3001               	movlw	(01h)
+  1399  0186  00B0               	movwf	(??_entry+0+0)
+  1400                           	
+  1401  0187  0830               	movf	(??_entry+0+0),w
+  1402  0188  07FD               	addwf	(125),f
+  1403                           	line	120
+  1404                           ;i2cs-led7.c: 120: } else {
+  1405  0189  298E               	goto	i1l43
+  1406                           	
+  1407  018A                     i1l42:	
+  1408                           	line	121
+  1409                           ;i2cs-led7.c: 121: i2cs_dummy = SSPBUF;
+  1410                           	
+  1411  018A  0813               	movf	(19),w	;volatile
+  1412                           	
+  1413  018B  00B0               	movwf	(??_entry+0+0)
+  1414                           	
+  1415  018C  0830               	movf	(??_entry+0+0),w
+  1416  018D  00FB               	movwf	(123)
+  1417                           	line	122
+  1418                           	
+  1419  018E                     i1l43:	
+  1420                           	line	123
+  1421                           ;i2cs-led7.c: 122: }
+  1422                           ;i2cs-led7.c: 123: } else {
+  1423  018E  299C               	goto	i1l35
+  1424                           	
+  1425  018F                     i1l41:	
+  1426                           	line	124
+  1427                           ;i2cs-led7.c: 124: if(CKP){
+  1428  018F  1283               	bcf	status, 5	;RP0=0, select bank0
+  1429  0190  1303               	bcf	status, 6	;RP2=0, select bank0
+  1430  0191  1E14               	btfss	(164/8),(164)&7
+  1431  0192  2994               	goto	i1u1561
+  1432  0193  2995               	goto	i1u1560
+  1433  0194                     i1u1561:
+  1434  0194  2996               	goto	i1l45
+  1435  0195                     i1u1560:
+  1436                           	line	126
+  1437                           ;i2cs-led7.c: 125: ;
+  1438                           ;i2cs-led7.c: 126: } else {
+  1439  0195  299C               	goto	i1l35
+  1440                           	
+  1441  0196                     i1l45:	
+  1442                           	line	127
+  1443                           ;i2cs-led7.c: 127: SSPBUF = 0;
+  1444  0196  1003               	clrc
+  1445                           	
+  1446  0197  3000               	movlw	0
+  1447  0198  1803               	btfsc	status,0
+  1448  0199  3001               	movlw	1
+  1449  019A  0093               	movwf	(19)	;volatile
+  1450                           	line	128
+  1451                           ;i2cs-led7.c: 128: CKP = 1;
+  1452  019B  1614               	bsf	(164/8),(164)&7
+  1453                           	line	129
+  1454                           	
+  1455  019C                     i1l46:	
+  1456                           	line	130
+  1457                           	
+  1458  019C                     i1l44:	
+  1459                           	line	131
+  1460                           	
+  1461  019C                     i1l40:	
+  1462                           	line	132
+  1463                           	
+  1464  019C                     i1l36:	
+  1465                           	line	133
+  1466                           	
+  1467  019C                     i1l35:	
+  1468                           ;i2cs-led7.c: 129: }
+  1469                           ;i2cs-led7.c: 130: }
+  1470                           ;i2cs-led7.c: 131: }
+  1471                           ;i2cs-led7.c: 132: }
+  1472                           ;i2cs-led7.c: 133: }
+  1473  019C                     i1l32:	
+  1474  019C  0834               	movf	(??_entry+4),w
+  1475  019D  00FE               	movwf	btemp+0
+  1476  019E  0833               	movf	(??_entry+3),w
+  1477  019F  008A               	movwf	pclath
+  1478  01A0  0832               	movf	(??_entry+2),w
+  1479  01A1  0084               	movwf	fsr
+  1480  01A2  0831               	movf	(??_entry+1),w
+  1481  01A3  0083               	movwf	status
+  1482  01A4  0EFF               	swapf	saved_w,f
+  1483  01A5  0E7F               	swapf	saved_w,w
+  1484  01A6  0009               	retfie
+  1485                           ; =============== function _entry ends ========
+                                 =======
+  1486                           
+  1487                           GLOBAL __end_of_entry
+  1488  01A7                     	__end_of_entry:
+  1489                           	FNSIZE	_entry,5,0
+  1490                           	signat	_entry,88
+  1491                           	FNCALL	_main,_led7_init
+  1492                           	FNCALL	_main,_i2cs_init
+  1493                           	FNCALL	_main,_i2cs_sync
+  1494                           	FNCALL	_i2cs_sync,_led7_putui
+  1495                           	FNCALL	_i2cs_sync,_led7_dot
+  1496                           	FNCALL	_led7_putui,___lwmod
+  1497                           	FNCALL	_led7_putui,___lwdiv
+  1498                           	FNROOT	_main
+  1499                           	FNCALL	intlevel1,_entry
+  1500                           	global	intlevel1
+  1501                           	FNROOT	intlevel1
+  1502                           	psect	strings,class=CODE,delta=2,reloc=256
+  1503                           	global	stringdir,stringtab,__stringbase,string
+                                 jmp
+  1504  0100                     stringtab:
+  1505  0100  00FE               	movwf	(btemp)&07Fh
+  1506  0101  1FFE               	btfss	(btemp)&07Fh,7
+  1507  0102  2908               	goto	stringcode
+  1508  0103  1383               	bcf	status,7
+  1509  0104  187E               	btfsc	btemp&7Fh,0
+  1510  0105  1783               	bsf	status,7
+  1511  0106  0800               	movf	indf,w
+  1512  0107  0008               	return
+  1513  0108                     stringcode:
+  1514  0108  0804               	movf	fsr,w
+  1515  0109                     stringdir:
+  1516  0109  00FE               movwf btemp&07Fh
+  1517  010A  3001               movlw high(stringdir)
+  1518  010B  008A               movwf pclath
+  1519  010C  087E               movf btemp&07Fh,w
+  1520  010D                     stringjmp:
+  1521  010D  0782               	addwf pc
+  1522  010E                     __stringbase:
+  1523  010E  3400               	retlw	0
+  1524                           	global	_font7s
+  1525                           	file	"C:\pic\7seg-led\font7s.h"
+  1526                           	line	1
+  1527  010F                     _font7s:
+  1528  010F  345F               	retlw	05Fh
+  1529  0110  340C               	retlw	0Ch
+  1530  0111  34D6               	retlw	0D6h
+  1531  0112  349E               	retlw	09Eh
+  1532  0113  348D               	retlw	08Dh
+  1533  0114  349B               	retlw	09Bh
+  1534  0115  34DB               	retlw	0DBh
+  1535  0116  340E               	retlw	0Eh
+  1536  0117  34DF               	retlw	0DFh
+  1537  0118  349F               	retlw	09Fh
+  1538                           	global	_led7_sel
+  1539                           	file	"C:\pic\7seg-led\i2cs-led7.c"
+  1540                           	line	18
+  1541  0119                     _led7_sel:
+  1542  0119  3401               	retlw	01h
+  1543  011A  3440               	retlw	040h
+  1544  011B  3420               	retlw	020h
+  1545  011C  3408               	retlw	08h
+  1546                           	global	_font7s
+  1547                           	global	_led7_sel
+  1548                           	global	_led7_ptn
+  1549                           	psect	common,class=COMMON,space=1
+  1550                           
+  1551                           	DABS	1,119,4	;_led7_ptn
+  1552  0000                     	_led7_ptn	set	0x77
+  1553                           
+  1554                           	global	_i2cs_d
+  1555                           
+  1556                           	DABS	1,116,3	;_i2cs_d
+  1557  0000                     	_i2cs_d	set	0x74
+  1558                           
+  1559                           	global	_i2cs_dummy
+  1560                           
+  1561                           	DABS	1,123,1	;_i2cs_dummy
+  1562  0000                     	_i2cs_dummy	set	0x7B
+  1563                           
+  1564                           	global	_i2cs_stage
+  1565                           
+  1566                           	DABS	1,125,1	;_i2cs_stage
+  1567  0000                     	_i2cs_stage	set	0x7D
+  1568                           
+  1569                           	global	_led7_dig
+  1570                           
+  1571                           	DABS	1,124,1	;_led7_dig
+  1572  0000                     	_led7_dig	set	0x7C
+  1573                           
+  1574                           	global	_ADCON0
+  1575  0000                     	_ADCON0	set	0x1F
+  1576                           
+  1577                           	global	_ADCON1
+  1578  0000                     	_ADCON1	set	0x9F
+  1579                           
+  1580                           	global	_ADRESH
+  1581  0000                     	_ADRESH	set	0x1E
+  1582                           
+  1583                           	global	_ADRESL
+  1584  0000                     	_ADRESL	set	0x9E
+  1585                           
+  1586                           	global	_ANSEL
+  1587  0000                     	_ANSEL	set	0x9B
+  1588                           
+  1589                           	global	_CCP1CON
+  1590                           	global	_CCP1CON
+  1591  0000                     	_CCP1CON	set	0x17
+  1592                           
+  1593                           	global	_CCPR1H
+  1594                           	global	_CCPR1H
+  1595  0000                     	_CCPR1H	set	0x16
+  1596                           
+  1597                           	global	_CCPR1L
+  1598                           	global	_CCPR1L
+  1599  0000                     	_CCPR1L	set	0x15
+  1600                           
+  1601                           	global	_CMCON
+  1602  0000                     	_CMCON	set	0x9C
+  1603                           
+  1604                           	global	_CVRCON
+  1605                           	global	_CVRCON
+  1606  0000                     	_CVRCON	set	0x9D
+  1607                           
+  1608                           	global	_EEADR
+  1609                           	global	_EEADR
+  1610  0000                     	_EEADR	set	0x10D
+  1611                           
+  1612                           	global	_EEADRH
+  1613                           	global	_EEADRH
+  1614  0000                     	_EEADRH	set	0x10F
+  1615                           
+  1616                           	global	_EEADRL
+  1617                           	global	_EEADRL
+  1618  0000                     	_EEADRL	set	0x10D
+  1619                           
+  1620                           	global	_EECON1
+  1621                           	global	_EECON1
+  1622  0000                     	_EECON1	set	0x18C
+  1623                           
+  1624                           	global	_EECON2
+  1625                           	global	_EECON2
+  1626  0000                     	_EECON2	set	0x18D
+  1627                           
+  1628                           	global	_EEDAT
+  1629                           	global	_EEDAT
+  1630  0000                     	_EEDAT	set	0x10C
+  1631                           
+  1632                           	global	_EEDATA
+  1633                           	global	_EEDATA
+  1634  0000                     	_EEDATA	set	0x10C
+  1635                           
+  1636                           	global	_EEDATH
+  1637                           	global	_EEDATH
+  1638  0000                     	_EEDATH	set	0x10E
+  1639                           
+  1640                           	global	_FSR
+  1641                           	global	_FSR
+  1642  0000                     	_FSR	set	0x4
+  1643                           
+  1644                           	global	_INDF
+  1645                           	global	_INDF
+  1646  0000                     	_INDF	set	0x0
+  1647                           
+  1648                           	global	_INTCON
+  1649                           	global	_INTCON
+  1650  0000                     	_INTCON	set	0xB
+  1651                           
+  1652                           	global	_OPTION
+  1653  0000                     	_OPTION	set	0x81
+  1654                           
+  1655                           	global	_OSCCON
+  1656  0000                     	_OSCCON	set	0x8F
+  1657                           
+  1658                           	global	_OSCTUNE
+  1659                           	global	_OSCTUNE
+  1660  0000                     	_OSCTUNE	set	0x90
+  1661                           
+  1662                           	global	_PCL
+  1663                           	global	_PCL
+  1664  0000                     	_PCL	set	0x2
+  1665                           
+  1666                           	global	_PCLATH
+  1667                           	global	_PCLATH
+  1668  0000                     	_PCLATH	set	0xA
+  1669                           
+  1670                           	global	_PCON
+  1671                           	global	_PCON
+  1672  0000                     	_PCON	set	0x8E
+  1673                           
+  1674                           	global	_PIE1
+  1675                           	global	_PIE1
+  1676  0000                     	_PIE1	set	0x8C
+  1677                           
+  1678                           	global	_PIE2
+  1679                           	global	_PIE2
+  1680  0000                     	_PIE2	set	0x8D
+  1681                           
+  1682                           	global	_PIR1
+  1683                           	global	_PIR1
+  1684  0000                     	_PIR1	set	0xC
+  1685                           
+  1686                           	global	_PIR2
+  1687                           	global	_PIR2
+  1688  0000                     	_PIR2	set	0xD
+  1689                           
+  1690                           	global	_PORTA
+  1691  0000                     	_PORTA	set	0x5
+  1692                           
+  1693                           	global	_PORTB
+  1694  0000                     	_PORTB	set	0x6
+  1695                           
+  1696                           	global	_PR2
+  1697                           	global	_PR2
+  1698  0000                     	_PR2	set	0x92
+  1699                           
+  1700                           	global	_RCREG
+  1701                           	global	_RCREG
+  1702  0000                     	_RCREG	set	0x1A
+  1703                           
+  1704                           	global	_RCSTA
+  1705                           	global	_RCSTA
+  1706  0000                     	_RCSTA	set	0x18
+  1707                           
+  1708                           	global	_SPBRG
+  1709                           	global	_SPBRG
+  1710  0000                     	_SPBRG	set	0x99
+  1711                           
+  1712                           	global	_SSPADD
+  1713  0000                     	_SSPADD	set	0x93
+  1714                           
+  1715                           	global	_SSPBUF
+  1716  0000                     	_SSPBUF	set	0x13
+  1717                           
+  1718                           	global	_SSPCON
+  1719  0000                     	_SSPCON	set	0x14
+  1720                           
+  1721                           	global	_SSPSTAT
+  1722  0000                     	_SSPSTAT	set	0x94
+  1723                           
+  1724                           	global	_STATUS
+  1725                           	global	_STATUS
+  1726  0000                     	_STATUS	set	0x3
+  1727                           
+  1728                           	global	_T1CON
+  1729                           	global	_T1CON
+  1730  0000                     	_T1CON	set	0x10
+  1731                           
+  1732                           	global	_T2CON
+  1733                           	global	_T2CON
+  1734  0000                     	_T2CON	set	0x12
+  1735                           
+  1736                           	global	_TMR0
+  1737                           	global	_TMR0
+  1738  0000                     	_TMR0	set	0x1
+  1739                           
+  1740                           	global	_TMR1H
+  1741                           	global	_TMR1H
+  1742  0000                     	_TMR1H	set	0xF
+  1743                           
+  1744                           	global	_TMR1L
+  1745                           	global	_TMR1L
+  1746  0000                     	_TMR1L	set	0xE
+  1747                           
+  1748                           	global	_TMR2
+  1749                           	global	_TMR2
+  1750  0000                     	_TMR2	set	0x11
+  1751                           
+  1752                           	global	_TRISA
+  1753  0000                     	_TRISA	set	0x85
+  1754                           
+  1755                           	global	_TRISB
+  1756  0000                     	_TRISB	set	0x86
+  1757                           
+  1758                           	global	_TXREG
+  1759                           	global	_TXREG
+  1760  0000                     	_TXREG	set	0x19
+  1761                           
+  1762                           	global	_TXSTA
+  1763                           	global	_TXSTA
+  1764  0000                     	_TXSTA	set	0x98
+  1765                           
+  1766                           	global	_WDTCON
+  1767                           	global	_WDTCON
+  1768  0000                     	_WDTCON	set	0x105
+  1769                           
+  1770                           	global	_ADCS0
+  1771                           	global	_ADCS0
+  1772  0000                     	_ADCS0	set	0xFE	;byte address: 0x1F
+  1773                           
+  1774                           	global	_ADCS1
+  1775                           	global	_ADCS1
+  1776  0000                     	_ADCS1	set	0xFF	;byte address: 0x1F
+  1777                           
+  1778                           	global	_ADCS2
+  1779                           	global	_ADCS2
+  1780  0000                     	_ADCS2	set	0x4FE	;byte address: 0x9F
+  1781                           
+  1782                           	global	_ADDEN
+  1783                           	global	_ADDEN
+  1784  0000                     	_ADDEN	set	0xC3	;byte address: 0x18
+  1785                           
+  1786                           	global	_ADFM
+  1787                           	global	_ADFM
+  1788  0000                     	_ADFM	set	0x4FF	;byte address: 0x9F
+  1789                           
+  1790                           	global	_ADGO
+  1791                           	global	_ADGO
+  1792  0000                     	_ADGO	set	0xFA	;byte address: 0x1F
+  1793                           
+  1794                           	global	_ADIE
+  1795                           	global	_ADIE
+  1796  0000                     	_ADIE	set	0x466	;byte address: 0x8C
+  1797                           
+  1798                           	global	_ADIF
+  1799                           	global	_ADIF
+  1800  0000                     	_ADIF	set	0x66	;byte address: 0xC
+  1801                           
+  1802                           	global	_ADON
+  1803                           	global	_ADON
+  1804  0000                     	_ADON	set	0xF8	;byte address: 0x1F
+  1805                           
+  1806                           	global	_ANS0
+  1807                           	global	_ANS0
+  1808  0000                     	_ANS0	set	0x4D8	;byte address: 0x9B
+  1809                           
+  1810                           	global	_ANS1
+  1811                           	global	_ANS1
+  1812  0000                     	_ANS1	set	0x4D9	;byte address: 0x9B
+  1813                           
+  1814                           	global	_ANS2
+  1815                           	global	_ANS2
+  1816  0000                     	_ANS2	set	0x4DA	;byte address: 0x9B
+  1817                           
+  1818                           	global	_ANS3
+  1819                           	global	_ANS3
+  1820  0000                     	_ANS3	set	0x4DB	;byte address: 0x9B
+  1821                           
+  1822                           	global	_ANS4
+  1823                           	global	_ANS4
+  1824  0000                     	_ANS4	set	0x4DC	;byte address: 0x9B
+  1825                           
+  1826                           	global	_ANS5
+  1827                           	global	_ANS5
+  1828  0000                     	_ANS5	set	0x4DD	;byte address: 0x9B
+  1829                           
+  1830                           	global	_ANS6
+  1831  0000                     	_ANS6	set	0x4DE	;byte address: 0x9B
+  1832                           
+  1833                           	global	_BF
+  1834  0000                     	_BF	set	0x4A0	;byte address: 0x94
+  1835                           
+  1836                           	global	_BOR
+  1837                           	global	_BOR
+  1838  0000                     	_BOR	set	0x470	;byte address: 0x8E
+  1839                           
+  1840                           	global	_BRGH
+  1841                           	global	_BRGH
+  1842  0000                     	_BRGH	set	0x4C2	;byte address: 0x98
+  1843                           
+  1844                           	global	_C1INV
+  1845                           	global	_C1INV
+  1846  0000                     	_C1INV	set	0x4E4	;byte address: 0x9C
+  1847                           
+  1848                           	global	_C1OUT
+  1849                           	global	_C1OUT
+  1850  0000                     	_C1OUT	set	0x4E6	;byte address: 0x9C
+  1851                           
+  1852                           	global	_C2INV
+  1853                           	global	_C2INV
+  1854  0000                     	_C2INV	set	0x4E5	;byte address: 0x9C
+  1855                           
+  1856                           	global	_C2OUT
+  1857                           	global	_C2OUT
+  1858  0000                     	_C2OUT	set	0x4E7	;byte address: 0x9C
+  1859                           
+  1860                           	global	_CARRY
+  1861                           	global	_CARRY
+  1862  0000                     	_CARRY	set	0x18	;byte address: 0x3
+  1863                           
+  1864                           	global	_CCP1IE
+  1865                           	global	_CCP1IE
+  1866  0000                     	_CCP1IE	set	0x462	;byte address: 0x8C
+  1867                           
+  1868                           	global	_CCP1IF
+  1869                           	global	_CCP1IF
+  1870  0000                     	_CCP1IF	set	0x62	;byte address: 0xC
+  1871                           
+  1872                           	global	_CCP1M0
+  1873                           	global	_CCP1M0
+  1874  0000                     	_CCP1M0	set	0xB8	;byte address: 0x17
+  1875                           
+  1876                           	global	_CCP1M1
+  1877                           	global	_CCP1M1
+  1878  0000                     	_CCP1M1	set	0xB9	;byte address: 0x17
+  1879                           
+  1880                           	global	_CCP1M2
+  1881                           	global	_CCP1M2
+  1882  0000                     	_CCP1M2	set	0xBA	;byte address: 0x17
+  1883                           
+  1884                           	global	_CCP1M3
+  1885                           	global	_CCP1M3
+  1886  0000                     	_CCP1M3	set	0xBB	;byte address: 0x17
+  1887                           
+  1888                           	global	_CCP1X
+  1889                           	global	_CCP1X
+  1890  0000                     	_CCP1X	set	0xBD	;byte address: 0x17
+  1891                           
+  1892                           	global	_CCP1Y
+  1893                           	global	_CCP1Y
+  1894  0000                     	_CCP1Y	set	0xBC	;byte address: 0x17
+  1895                           
+  1896                           	global	_CHS0
+  1897                           	global	_CHS0
+  1898  0000                     	_CHS0	set	0xFB	;byte address: 0x1F
+  1899                           
+  1900                           	global	_CHS1
+  1901                           	global	_CHS1
+  1902  0000                     	_CHS1	set	0xFC	;byte address: 0x1F
+  1903                           
+  1904                           	global	_CHS2
+  1905                           	global	_CHS2
+  1906  0000                     	_CHS2	set	0xFD	;byte address: 0x1F
+  1907                           
+  1908                           	global	_CIS
+  1909                           	global	_CIS
+  1910  0000                     	_CIS	set	0x4E3	;byte address: 0x9C
+  1911                           
+  1912                           	global	_CKE
+  1913                           	global	_CKE
+  1914  0000                     	_CKE	set	0x4A6	;byte address: 0x94
+  1915                           
+  1916                           	global	_CKP
+  1917  0000                     	_CKP	set	0xA4	;byte address: 0x14
+  1918                           
+  1919                           	global	_CM0
+  1920                           	global	_CM0
+  1921  0000                     	_CM0	set	0x4E0	;byte address: 0x9C
+  1922                           
+  1923                           	global	_CM1
+  1924                           	global	_CM1
+  1925  0000                     	_CM1	set	0x4E1	;byte address: 0x9C
+  1926                           
+  1927                           	global	_CM2
+  1928                           	global	_CM2
+  1929  0000                     	_CM2	set	0x4E2	;byte address: 0x9C
+  1930                           
+  1931                           	global	_CMIE
+  1932                           	global	_CMIE
+  1933  0000                     	_CMIE	set	0x46E	;byte address: 0x8D
+  1934                           
+  1935                           	global	_CMIF
+  1936                           	global	_CMIF
+  1937  0000                     	_CMIF	set	0x6E	;byte address: 0xD
+  1938                           
+  1939                           	global	_CREN
+  1940                           	global	_CREN
+  1941  0000                     	_CREN	set	0xC4	;byte address: 0x18
+  1942                           
+  1943                           	global	_CSRC
+  1944                           	global	_CSRC
+  1945  0000                     	_CSRC	set	0x4C7	;byte address: 0x98
+  1946                           
+  1947                           	global	_CVR0
+  1948                           	global	_CVR0
+  1949  0000                     	_CVR0	set	0x4E8	;byte address: 0x9D
+  1950                           
+  1951                           	global	_CVR1
+  1952                           	global	_CVR1
+  1953  0000                     	_CVR1	set	0x4E9	;byte address: 0x9D
+  1954                           
+  1955                           	global	_CVR2
+  1956                           	global	_CVR2
+  1957  0000                     	_CVR2	set	0x4EA	;byte address: 0x9D
+  1958                           
+  1959                           	global	_CVR3
+  1960                           	global	_CVR3
+  1961  0000                     	_CVR3	set	0x4EB	;byte address: 0x9D
+  1962                           
+  1963                           	global	_CVREN
+  1964                           	global	_CVREN
+  1965  0000                     	_CVREN	set	0x4EF	;byte address: 0x9D
+  1966                           
+  1967                           	global	_CVROE
+  1968                           	global	_CVROE
+  1969  0000                     	_CVROE	set	0x4EE	;byte address: 0x9D
+  1970                           
+  1971                           	global	_CVRR
+  1972                           	global	_CVRR
+  1973  0000                     	_CVRR	set	0x4ED	;byte address: 0x9D
+  1974                           
+  1975                           	global	_DA
+  1976  0000                     	_DA	set	0x4A5	;byte address: 0x94
+  1977                           
+  1978                           	global	_DC
+  1979                           	global	_DC
+  1980  0000                     	_DC	set	0x19	;byte address: 0x3
+  1981                           
+  1982                           	global	_EEIE
+  1983                           	global	_EEIE
+  1984  0000                     	_EEIE	set	0x46C	;byte address: 0x8D
+  1985                           
+  1986                           	global	_EEIF
+  1987                           	global	_EEIF
+  1988  0000                     	_EEIF	set	0x6C	;byte address: 0xD
+  1989                           
+  1990                           	global	_EEPGD
+  1991                           	global	_EEPGD
+  1992  0000                     	_EEPGD	set	0xC67	;byte address: 0x18C
+  1993                           
+  1994                           	global	_FERR
+  1995                           	global	_FERR
+  1996  0000                     	_FERR	set	0xC2	;byte address: 0x18
+  1997                           
+  1998                           	global	_FREE
+  1999                           	global	_FREE
+  2000  0000                     	_FREE	set	0xC64	;byte address: 0x18C
+  2001                           
+  2002                           	global	_GIE
+  2003  0000                     	_GIE	set	0x5F	;byte address: 0xB
+  2004                           
+  2005                           	global	_GODONE
+  2006  0000                     	_GODONE	set	0xFA	;byte address: 0x1F
+  2007                           
+  2008                           	global	_INT0IE
+  2009                           	global	_INT0IE
+  2010  0000                     	_INT0IE	set	0x5C	;byte address: 0xB
+  2011                           
+  2012                           	global	_INT0IF
+  2013                           	global	_INT0IF
+  2014  0000                     	_INT0IF	set	0x59	;byte address: 0xB
+  2015                           
+  2016                           	global	_INTEDG
+  2017                           	global	_INTEDG
+  2018  0000                     	_INTEDG	set	0x40E	;byte address: 0x81
+  2019                           
+  2020                           	global	_IOFS
+  2021                           	global	_IOFS
+  2022  0000                     	_IOFS	set	0x47A	;byte address: 0x8F
+  2023                           
+  2024                           	global	_IRCF0
+  2025                           	global	_IRCF0
+  2026  0000                     	_IRCF0	set	0x47C	;byte address: 0x8F
+  2027                           
+  2028                           	global	_IRCF1
+  2029                           	global	_IRCF1
+  2030  0000                     	_IRCF1	set	0x47D	;byte address: 0x8F
+  2031                           
+  2032                           	global	_IRCF2
+  2033                           	global	_IRCF2
+  2034  0000                     	_IRCF2	set	0x47E	;byte address: 0x8F
+  2035                           
+  2036                           	global	_IRP
+  2037                           	global	_IRP
+  2038  0000                     	_IRP	set	0x1F	;byte address: 0x3
+  2039                           
+  2040                           	global	_OERR
+  2041                           	global	_OERR
+  2042  0000                     	_OERR	set	0xC1	;byte address: 0x18
+  2043                           
+  2044                           	global	_OSFIE
+  2045                           	global	_OSFIE
+  2046  0000                     	_OSFIE	set	0x46F	;byte address: 0x8D
+  2047                           
+  2048                           	global	_OSFIF
+  2049                           	global	_OSFIF
+  2050  0000                     	_OSFIF	set	0x6F	;byte address: 0xD
+  2051                           
+  2052                           	global	_OSTS
+  2053                           	global	_OSTS
+  2054  0000                     	_OSTS	set	0x47B	;byte address: 0x8F
+  2055                           
+  2056                           	global	_PD
+  2057                           	global	_PD
+  2058  0000                     	_PD	set	0x1B	;byte address: 0x3
+  2059                           
+  2060                           	global	_PEIE
+  2061  0000                     	_PEIE	set	0x5E	;byte address: 0xB
+  2062                           
+  2063                           	global	_POR
+  2064                           	global	_POR
+  2065  0000                     	_POR	set	0x471	;byte address: 0x8E
+  2066                           
+  2067                           	global	_PS0
+  2068                           	global	_PS0
+  2069  0000                     	_PS0	set	0x408	;byte address: 0x81
+  2070                           
+  2071                           	global	_PS1
+  2072                           	global	_PS1
+  2073  0000                     	_PS1	set	0x409	;byte address: 0x81
+  2074                           
+  2075                           	global	_PS2
+  2076                           	global	_PS2
+  2077  0000                     	_PS2	set	0x40A	;byte address: 0x81
+  2078                           
+  2079                           	global	_PSA
+  2080                           	global	_PSA
+  2081  0000                     	_PSA	set	0x40B	;byte address: 0x81
+  2082                           
+  2083                           	global	_RA0
+  2084                           	global	_RA0
+  2085  0000                     	_RA0	set	0x28	;byte address: 0x5
+  2086                           
+  2087                           	global	_RA1
+  2088                           	global	_RA1
+  2089  0000                     	_RA1	set	0x29	;byte address: 0x5
+  2090                           
+  2091                           	global	_RA2
+  2092                           	global	_RA2
+  2093  0000                     	_RA2	set	0x2A	;byte address: 0x5
+  2094                           
+  2095                           	global	_RA3
+  2096                           	global	_RA3
+  2097  0000                     	_RA3	set	0x2B	;byte address: 0x5
+  2098                           
+  2099                           	global	_RA4
+  2100                           	global	_RA4
+  2101  0000                     	_RA4	set	0x2C	;byte address: 0x5
+  2102                           
+  2103                           	global	_RA5
+  2104                           	global	_RA5
+  2105  0000                     	_RA5	set	0x2D	;byte address: 0x5
+  2106                           
+  2107                           	global	_RA6
+  2108                           	global	_RA6
+  2109  0000                     	_RA6	set	0x2E	;byte address: 0x5
+  2110                           
+  2111                           	global	_RA7
+  2112                           	global	_RA7
+  2113  0000                     	_RA7	set	0x2F	;byte address: 0x5
+  2114                           
+  2115                           	global	_RB0
+  2116                           	global	_RB0
+  2117  0000                     	_RB0	set	0x30	;byte address: 0x6
+  2118                           
+  2119                           	global	_RB1
+  2120                           	global	_RB1
+  2121  0000                     	_RB1	set	0x31	;byte address: 0x6
+  2122                           
+  2123                           	global	_RB2
+  2124  0000                     	_RB2	set	0x32	;byte address: 0x6
+  2125                           
+  2126                           	global	_RB3
+  2127                           	global	_RB3
+  2128  0000                     	_RB3	set	0x33	;byte address: 0x6
+  2129                           
+  2130                           	global	_RB4
+  2131                           	global	_RB4
+  2132  0000                     	_RB4	set	0x34	;byte address: 0x6
+  2133                           
+  2134                           	global	_RB5
+  2135                           	global	_RB5
+  2136  0000                     	_RB5	set	0x35	;byte address: 0x6
+  2137                           
+  2138                           	global	_RB6
+  2139                           	global	_RB6
+  2140  0000                     	_RB6	set	0x36	;byte address: 0x6
+  2141                           
+  2142                           	global	_RB7
+  2143                           	global	_RB7
+  2144  0000                     	_RB7	set	0x37	;byte address: 0x6
+  2145                           
+  2146                           	global	_RBIE
+  2147                           	global	_RBIE
+  2148  0000                     	_RBIE	set	0x5B	;byte address: 0xB
+  2149                           
+  2150                           	global	_RBIF
+  2151                           	global	_RBIF
+  2152  0000                     	_RBIF	set	0x58	;byte address: 0xB
+  2153                           
+  2154                           	global	_RBPU
+  2155  0000                     	_RBPU	set	0x40F	;byte address: 0x81
+  2156                           
+  2157                           	global	_RCIE
+  2158                           	global	_RCIE
+  2159  0000                     	_RCIE	set	0x465	;byte address: 0x8C
+  2160                           
+  2161                           	global	_RCIF
+  2162                           	global	_RCIF
+  2163  0000                     	_RCIF	set	0x65	;byte address: 0xC
+  2164                           
+  2165                           	global	_RD
+  2166                           	global	_RD
+  2167  0000                     	_RD	set	0xC60	;byte address: 0x18C
+  2168                           
+  2169                           	global	_RP0
+  2170                           	global	_RP0
+  2171  0000                     	_RP0	set	0x1D	;byte address: 0x3
+  2172                           
+  2173                           	global	_RP1
+  2174                           	global	_RP1
+  2175  0000                     	_RP1	set	0x1E	;byte address: 0x3
+  2176                           
+  2177                           	global	_RW
+  2178  0000                     	_RW	set	0x4A2	;byte address: 0x94
+  2179                           
+  2180                           	global	_RX9
+  2181                           	global	_RX9
+  2182  0000                     	_RX9	set	0xC6	;byte address: 0x18
+  2183                           
+  2184                           	global	_RX9D
+  2185                           	global	_RX9D
+  2186  0000                     	_RX9D	set	0xC0	;byte address: 0x18
+  2187                           
+  2188                           	global	_SCS0
+  2189                           	global	_SCS0
+  2190  0000                     	_SCS0	set	0x478	;byte address: 0x8F
+  2191                           
+  2192                           	global	_SCS1
+  2193                           	global	_SCS1
+  2194  0000                     	_SCS1	set	0x479	;byte address: 0x8F
+  2195                           
+  2196                           	global	_SMP
+  2197                           	global	_SMP
+  2198  0000                     	_SMP	set	0x4A7	;byte address: 0x94
+  2199                           
+  2200                           	global	_SPEN
+  2201                           	global	_SPEN
+  2202  0000                     	_SPEN	set	0xC7	;byte address: 0x18
+  2203                           
+  2204                           	global	_SREN
+  2205                           	global	_SREN
+  2206  0000                     	_SREN	set	0xC5	;byte address: 0x18
+  2207                           
+  2208                           	global	_SSPEN
+  2209                           	global	_SSPEN
+  2210  0000                     	_SSPEN	set	0xA5	;byte address: 0x14
+  2211                           
+  2212                           	global	_SSPIE
+  2213  0000                     	_SSPIE	set	0x463	;byte address: 0x8C
+  2214                           
+  2215                           	global	_SSPIF
+  2216  0000                     	_SSPIF	set	0x63	;byte address: 0xC
+  2217                           
+  2218                           	global	_SSPM0
+  2219                           	global	_SSPM0
+  2220  0000                     	_SSPM0	set	0xA0	;byte address: 0x14
+  2221                           
+  2222                           	global	_SSPM1
+  2223                           	global	_SSPM1
+  2224  0000                     	_SSPM1	set	0xA1	;byte address: 0x14
+  2225                           
+  2226                           	global	_SSPM2
+  2227                           	global	_SSPM2
+  2228  0000                     	_SSPM2	set	0xA2	;byte address: 0x14
+  2229                           
+  2230                           	global	_SSPM3
+  2231                           	global	_SSPM3
+  2232  0000                     	_SSPM3	set	0xA3	;byte address: 0x14
+  2233                           
+  2234                           	global	_SSPOV
+  2235                           	global	_SSPOV
+  2236  0000                     	_SSPOV	set	0xA6	;byte address: 0x14
+  2237                           
+  2238                           	global	_START
+  2239                           	global	_START
+  2240  0000                     	_START	set	0x4A3	;byte address: 0x94
+  2241                           
+  2242                           	global	_STOP
+  2243  0000                     	_STOP	set	0x4A4	;byte address: 0x94
+  2244                           
+  2245                           	global	_SWDTEN
+  2246                           	global	_SWDTEN
+  2247  0000                     	_SWDTEN	set	0x828	;byte address: 0x105
+  2248                           
+  2249                           	global	_SYNC
+  2250                           	global	_SYNC
+  2251  0000                     	_SYNC	set	0x4C4	;byte address: 0x98
+  2252                           
+  2253                           	global	_T0CS
+  2254                           	global	_T0CS
+  2255  0000                     	_T0CS	set	0x40D	;byte address: 0x81
+  2256                           
+  2257                           	global	_T0SE
+  2258                           	global	_T0SE
+  2259  0000                     	_T0SE	set	0x40C	;byte address: 0x81
+  2260                           
+  2261                           	global	_T1CKPS0
+  2262                           	global	_T1CKPS0
+  2263  0000                     	_T1CKPS0	set	0x84	;byte address: 0x10
+  2264                           
+  2265                           	global	_T1CKPS1
+  2266                           	global	_T1CKPS1
+  2267  0000                     	_T1CKPS1	set	0x85	;byte address: 0x10
+  2268                           
+  2269                           	global	_T1OSCEN
+  2270                           	global	_T1OSCEN
+  2271  0000                     	_T1OSCEN	set	0x83	;byte address: 0x10
+  2272                           
+  2273                           	global	_T1RUN
+  2274                           	global	_T1RUN
+  2275  0000                     	_T1RUN	set	0x86	;byte address: 0x10
+  2276                           
+  2277                           	global	_T1SYNC
+  2278                           	global	_T1SYNC
+  2279  0000                     	_T1SYNC	set	0x82	;byte address: 0x10
+  2280                           
+  2281                           	global	_T2CKPS0
+  2282                           	global	_T2CKPS0
+  2283  0000                     	_T2CKPS0	set	0x90	;byte address: 0x12
+  2284                           
+  2285                           	global	_T2CKPS1
+  2286                           	global	_T2CKPS1
+  2287  0000                     	_T2CKPS1	set	0x91	;byte address: 0x12
+  2288                           
+  2289                           	global	_TMR0IE
+  2290  0000                     	_TMR0IE	set	0x5D	;byte address: 0xB
+  2291                           
+  2292                           	global	_TMR0IF
+  2293  0000                     	_TMR0IF	set	0x5A	;byte address: 0xB
+  2294                           
+  2295                           	global	_TMR1CS
+  2296                           	global	_TMR1CS
+  2297  0000                     	_TMR1CS	set	0x81	;byte address: 0x10
+  2298                           
+  2299                           	global	_TMR1IE
+  2300                           	global	_TMR1IE
+  2301  0000                     	_TMR1IE	set	0x460	;byte address: 0x8C
+  2302                           
+  2303                           	global	_TMR1IF
+  2304                           	global	_TMR1IF
+  2305  0000                     	_TMR1IF	set	0x60	;byte address: 0xC
+  2306                           
+  2307                           	global	_TMR1ON
+  2308                           	global	_TMR1ON
+  2309  0000                     	_TMR1ON	set	0x80	;byte address: 0x10
+  2310                           
+  2311                           	global	_TMR2IE
+  2312                           	global	_TMR2IE
+  2313  0000                     	_TMR2IE	set	0x461	;byte address: 0x8C
+  2314                           
+  2315                           	global	_TMR2IF
+  2316                           	global	_TMR2IF
+  2317  0000                     	_TMR2IF	set	0x61	;byte address: 0xC
+  2318                           
+  2319                           	global	_TMR2ON
+  2320                           	global	_TMR2ON
+  2321  0000                     	_TMR2ON	set	0x92	;byte address: 0x12
+  2322                           
+  2323                           	global	_TO
+  2324                           	global	_TO
+  2325  0000                     	_TO	set	0x1C	;byte address: 0x3
+  2326                           
+  2327                           	global	_TOUTPS0
+  2328                           	global	_TOUTPS0
+  2329  0000                     	_TOUTPS0	set	0x93	;byte address: 0x12
+  2330                           
+  2331                           	global	_TOUTPS1
+  2332                           	global	_TOUTPS1
+  2333  0000                     	_TOUTPS1	set	0x94	;byte address: 0x12
+  2334                           
+  2335                           	global	_TOUTPS2
+  2336                           	global	_TOUTPS2
+  2337  0000                     	_TOUTPS2	set	0x95	;byte address: 0x12
+  2338                           
+  2339                           	global	_TOUTPS3
+  2340                           	global	_TOUTPS3
+  2341  0000                     	_TOUTPS3	set	0x96	;byte address: 0x12
+  2342                           
+  2343                           	global	_TRISA0
+  2344                           	global	_TRISA0
+  2345  0000                     	_TRISA0	set	0x428	;byte address: 0x85
+  2346                           
+  2347                           	global	_TRISA1
+  2348                           	global	_TRISA1
+  2349  0000                     	_TRISA1	set	0x429	;byte address: 0x85
+  2350                           
+  2351                           	global	_TRISA2
+  2352                           	global	_TRISA2
+  2353  0000                     	_TRISA2	set	0x42A	;byte address: 0x85
+  2354                           
+  2355                           	global	_TRISA3
+  2356                           	global	_TRISA3
+  2357  0000                     	_TRISA3	set	0x42B	;byte address: 0x85
+  2358                           
+  2359                           	global	_TRISA4
+  2360                           	global	_TRISA4
+  2361  0000                     	_TRISA4	set	0x42C	;byte address: 0x85
+  2362                           
+  2363                           	global	_TRISA5
+  2364                           	global	_TRISA5
+  2365  0000                     	_TRISA5	set	0x42D	;byte address: 0x85
+  2366                           
+  2367                           	global	_TRISA6
+  2368                           	global	_TRISA6
+  2369  0000                     	_TRISA6	set	0x42E	;byte address: 0x85
+  2370                           
+  2371                           	global	_TRISA7
+  2372                           	global	_TRISA7
+  2373  0000                     	_TRISA7	set	0x42F	;byte address: 0x85
+  2374                           
+  2375                           	global	_TRISB0
+  2376                           	global	_TRISB0
+  2377  0000                     	_TRISB0	set	0x430	;byte address: 0x86
+  2378                           
+  2379                           	global	_TRISB1
+  2380  0000                     	_TRISB1	set	0x431	;byte address: 0x86
+  2381                           
+  2382                           	global	_TRISB2
+  2383                           	global	_TRISB2
+  2384  0000                     	_TRISB2	set	0x432	;byte address: 0x86
+  2385                           
+  2386                           	global	_TRISB3
+  2387                           	global	_TRISB3
+  2388  0000                     	_TRISB3	set	0x433	;byte address: 0x86
+  2389                           
+  2390                           	global	_TRISB4
+  2391  0000                     	_TRISB4	set	0x434	;byte address: 0x86
+  2392                           
+  2393                           	global	_TRISB5
+  2394                           	global	_TRISB5
+  2395  0000                     	_TRISB5	set	0x435	;byte address: 0x86
+  2396                           
+  2397                           	global	_TRISB6
+  2398                           	global	_TRISB6
+  2399  0000                     	_TRISB6	set	0x436	;byte address: 0x86
+  2400                           
+  2401                           	global	_TRISB7
+  2402  0000                     	_TRISB7	set	0x437	;byte address: 0x86
+  2403                           
+  2404                           	global	_TRMT
+  2405                           	global	_TRMT
+  2406  0000                     	_TRMT	set	0x4C1	;byte address: 0x98
+  2407                           
+  2408                           	global	_TUN0
+  2409                           	global	_TUN0
+  2410  0000                     	_TUN0	set	0x480	;byte address: 0x90
+  2411                           
+  2412                           	global	_TUN1
+  2413                           	global	_TUN1
+  2414  0000                     	_TUN1	set	0x481	;byte address: 0x90
+  2415                           
+  2416                           	global	_TUN2
+  2417                           	global	_TUN2
+  2418  0000                     	_TUN2	set	0x482	;byte address: 0x90
+  2419                           
+  2420                           	global	_TUN3
+  2421                           	global	_TUN3
+  2422  0000                     	_TUN3	set	0x483	;byte address: 0x90
+  2423                           
+  2424                           	global	_TUN4
+  2425                           	global	_TUN4
+  2426  0000                     	_TUN4	set	0x484	;byte address: 0x90
+  2427                           
+  2428                           	global	_TUN5
+  2429                           	global	_TUN5
+  2430  0000                     	_TUN5	set	0x485	;byte address: 0x90
+  2431                           
+  2432                           	global	_TX9
+  2433                           	global	_TX9
+  2434  0000                     	_TX9	set	0x4C6	;byte address: 0x98
+  2435                           
+  2436                           	global	_TX9D
+  2437                           	global	_TX9D
+  2438  0000                     	_TX9D	set	0x4C0	;byte address: 0x98
+  2439                           
+  2440                           	global	_TXEN
+  2441                           	global	_TXEN
+  2442  0000                     	_TXEN	set	0x4C5	;byte address: 0x98
+  2443                           
+  2444                           	global	_TXIE
+  2445                           	global	_TXIE
+  2446  0000                     	_TXIE	set	0x464	;byte address: 0x8C
+  2447                           
+  2448                           	global	_TXIF
+  2449                           	global	_TXIF
+  2450  0000                     	_TXIF	set	0x64	;byte address: 0xC
+  2451                           
+  2452                           	global	_UA
+  2453                           	global	_UA
+  2454  0000                     	_UA	set	0x4A1	;byte address: 0x94
+  2455                           
+  2456                           	global	_VCFG0
+  2457                           	global	_VCFG0
+  2458  0000                     	_VCFG0	set	0x4FC	;byte address: 0x9F
+  2459                           
+  2460                           	global	_VCFG1
+  2461                           	global	_VCFG1
+  2462  0000                     	_VCFG1	set	0x4FD	;byte address: 0x9F
+  2463                           
+  2464                           	global	_WCOL
+  2465                           	global	_WCOL
+  2466  0000                     	_WCOL	set	0xA7	;byte address: 0x14
+  2467                           
+  2468                           	global	_WDTPS0
+  2469                           	global	_WDTPS0
+  2470  0000                     	_WDTPS0	set	0x829	;byte address: 0x105
+  2471                           
+  2472                           	global	_WDTPS1
+  2473                           	global	_WDTPS1
+  2474  0000                     	_WDTPS1	set	0x82A	;byte address: 0x105
+  2475                           
+  2476                           	global	_WDTPS2
+  2477                           	global	_WDTPS2
+  2478  0000                     	_WDTPS2	set	0x82B	;byte address: 0x105
+  2479                           
+  2480                           	global	_WDTPS3
+  2481                           	global	_WDTPS3
+  2482  0000                     	_WDTPS3	set	0x82C	;byte address: 0x105
+  2483                           
+  2484                           	global	_WR
+  2485                           	global	_WR
+  2486  0000                     	_WR	set	0xC61	;byte address: 0x18C
+  2487                           
+  2488                           	global	_WREN
+  2489                           	global	_WREN
+  2490  0000                     	_WREN	set	0xC62	;byte address: 0x18C
+  2491                           
+  2492                           	global	_WRERR
+  2493                           	global	_WRERR
+  2494  0000                     	_WRERR	set	0xC63	;byte address: 0x18C
+  2495                           
+  2496                           	global	_ZERO
+  2497                           	global	_ZERO
+  2498  0000                     	_ZERO	set	0x1A	;byte address: 0x3
+  2499                           
+  2500                           	PSECT	fnauto0,class=BANK0,space=1
+  2501                           	FNCONF	fnauto0,??,?
+  2502                           
+  2503                           	DABS	1,126,2	;btemp
+  2504                           	global	btemp
+  2505  0000                     	btemp set 07Eh
+  2506                           apbank macro
+  2507                           	bcf	status,5
+  2508                           	bcf	status,6
+  2509  0020                     	endm
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL5 build 3884 
+Symbol Table                                          Wed Nov 18 11:14:15 2009
+
+         __Lrdata_0 0000                   pc 0002           __Lramdata 0000  
+       ??_i2cs_init 0022                  l20 0037                  _DA 04A5  
+                _BF 04A0                  l30 0304                  l22 003D  
+                l14 0032                  _DC 0019                  l23 0238  
+                l31 02E9                  l24 0279                  l16 0036  
+                l25 023F                  l17 004B                  l26 0279  
+                l18 0036                  l60 01B5                  l28 02CE  
+                l61 01C4                  l29 02CE                  l70 0293  
+                l63 01E9                  l64 01C4                  l72 02B0  
+                l57 01F0                  l65 01DC                  l73 0293  
+                l58 01E9                  l66 02B1                  l74 02A3  
+                l59 01C0                  l67 02B0                  l68 028F  
+                l69 0284                  _PD 001B                  _RD 0C60  
+                _UA 04A1                  _TO 001C                  _RW 04A2  
+                _WR 0C61         ??_i2cs_sync 0022                  fsr 0004  
+   ___lwmod_divisor 002A     ___lwmod_counter 002C                 _CM0 04E0  
+               _CM1 04E1                 _CM2 04E2                 _CKE 04A6  
+               _CIS 04E3                 _CKP 00A4                 _GIE 005F  
+               _BOR 0470                 _RA0 0028                 _RA1 0029  
+               _RB0 0030                 _RA2 002A                 _RB1 0031  
+               _RA3 002B                 _RB2 0032                 _RA4 002C  
+               _RB3 0033                 _RA5 002D                 _RB4 0034  
+               _RA6 002E                 _RB5 0035                 _RA7 002F  
+               _RB6 0036                 _RB7 0037                 _FSR 0004  
+               _PCL 0002                 _PS0 0408                 _PR2 0092  
+               _PS1 0409                 _RP0 001D                 _PS2 040A  
+               _IRP 001F                 _RP1 001E                 _PSA 040B  
+               _POR 0471                 _RX9 00C6                 _SMP 04A7  
+               _TX9 04C6                 indf 0000    ___lwmod_dividend 0028  
+          _led7_dig 007C            _led7_dot 02B2            _led7_sel 0119  
+          _led7_ptn 0077    ___lwdiv_dividend 0028           ?_led7_dot 0024  
+           ??_entry 0030                _ADIE 0466                _ADIF 0066  
+              _ADFM 04FF                _ADGO 00FA            __tempreg 005A  
+              _ADON 00F8                _CHS0 00FB                _CHS1 00FC  
+              _CHS2 00FD                _EEIE 046C                _EEIF 006C  
+              _ANS0 04D8                _ANS1 04D9                _ANS2 04DA  
+              _ANS3 04DB                _ANS4 04DC                _ANS5 04DD  
+              _ANS6 04DE                _CMIE 046E                _CMIF 006E  
+              _BRGH 04C2                _CREN 00C4                _T0CS 040D  
+              _FERR 00C2                _CVR0 04E8                _CVR1 04E9  
+              _CVR2 04EA                _FREE 0C64                _CVR3 04EB  
+              _T0SE 040C                _CSRC 04C7                _INDF 0000  
+              u1600 0279                u1601 0278                u1620 01B1  
+              u1621 01B0                u1710 0293                u1711 0292  
+              u1615 02D6                u1640 01C4                u1720 029D  
+              u1641 01C3                u1721 029C                u1705 0285  
+              u1570 0036                u1635 01B6                u1571 0035  
+              u1660 01D5                u1740 02B0                u1580 003D  
+              u1661 01D4                u1741 02AF                u1725 0299  
+              u1581 003C                u1750 02C9                _PIE1 008C  
+              u1655 01C5                u1735 02A4                u1751 02C8  
+              _PIE2 008D                u1680 01E9                u1681 01E8  
+              u1665 01D1                u1690 0280                _IOFS 047A  
+              u1675 01DD                u1691 027F                _CVRR 04ED  
+              u1767 0046                _PEIE 005E                _RBIE 005B  
+              _RBIF 0058                i1l32 019C                i1l40 019C  
+              i1l41 018F                i1l33 014A                i1l42 018A  
+              i1l34 0141                _RCIE 0465                i1l43 018E  
+              i1l35 019C                _RCIF 0065                i1l36 019C  
+              i1l44 019C                i1l45 0196                i1l37 0172  
+              i1l46 019C                i1l38 0169                i1l39 0171  
+              _PCON 008E                _PIR1 000C                _SCS0 0478  
+              _PIR2 000D                _SCS1 0479                _OERR 00C1  
+              _RBPU 040F                _RX9D 00C0                _TMR0 0001  
+              _TMR2 0011                _WCOL 00A7                _SPEN 00C7  
+         __databank 0000                _TX9D 04C0                _SREN 00C5  
+              _OSTS 047B                _TUN0 0480                _TUN1 0481  
+              _TUN2 0482                _TUN3 0483                _TUN4 0484  
+              _TUN5 0485                _TRMT 04C1                _STOP 04A4  
+              _ZERO 001A                _TXIE 0464                _WREN 0C62  
+              _TXIF 0064                _TXEN 04C5                _SYNC 04C4  
+        ??_led7_dot 0024                _main 0023                btemp 007E  
+              start 0011   interrupt_function 0004           _led7_init 01F1  
+ __end_of_led7_init 0239           stringcode 0108     __end_of___lwdiv 01F1  
+  ___lwdiv_quotient 002D     __end_of___lwmod 02B2             _CCP1CON 0017  
+        ?_led7_init 0022               _C1INV 04E4               _C2INV 04E5  
+             _C1OUT 04E6               _C2OUT 04E7               _ADCS0 00FE  
+             _ADCS1 00FF               _ADCS2 04FE               _ADDEN 00C3  
+             ?_main 0020               _CCP1X 00BD               _CCP1Y 00BC  
+             _EEADR 010D               _EEDAT 010C               _CARRY 0018  
+             _EEPGD 0C67               _CMCON 009C               _ANSEL 009B  
+             _T1CON 0010               _T2CON 0012             _T1CKPS0 0084  
+           _T1CKPS1 0085               _IRCF0 047C               _IRCF1 047D  
+             _IRCF2 047E             _T2CKPS0 0090             _T2CKPS1 0091  
+             _CVREN 04EF               _T1RUN 0086       __end_of_entry 01A7  
+             _CVROE 04EE               _VCFG0 04FC               _VCFG1 04FD  
+             _RCREG 001A               _RCSTA 0018               _OSFIE 046F  
+             _OSFIF 006F               _TMR1H 000F               _TMR1L 000E  
+             _SPBRG 0099               _PORTA 0005               _PORTB 0006  
+           _T1OSCEN 0083        _led7_putui_i 0026               _START 04A3  
+             _SSPM0 00A0               _SSPM1 00A1               _SSPM2 00A2  
+             _SSPM3 00A3               _TRISA 0085               _TRISB 0086  
+             _SSPIE 0463               _SSPIF 0063               _SSPEN 00A5  
+             _SSPOV 00A6               _WRERR 0C63               _TXREG 0019  
+             _TXSTA 0098         ??_led7_init 0022             _OSCTUNE 0090  
+             _entry 011D             _SSPSTAT 0094             _TOUTPS0 0093  
+           _TOUTPS1 0094             _TOUTPS2 0095             _TOUTPS3 0096  
+             pclath 000A            intlevel1 0004               status 0003  
+       __stringbase 010E             ___lwdiv 01A7             ___lwmod 027A  
+          ?___lwdiv 0028            ?___lwmod 0028           ??___lwdiv 002C  
+         ??___lwmod 002C              ??_main 0020     ___lwdiv_divisor 002A  
+        _led7_putui 0239     ___lwdiv_counter 002C  __end_of_led7_putui 027A  
+  __end_of_led7_dot 02CF            stringdir 0109            stringjmp 010D  
+          stringtab 0100              _ADCON0 001F              _ADCON1 009F  
+       ?_led7_putui 0024              _CCP1M0 00B8              _CCP1M1 00B9  
+            _CCP1M2 00BA              _CCP1M3 00BB              _CCP1IE 0462  
+            _CCP1IF 0062              ?_entry 0030              _ADRESH 001E  
+            _EEADRH 010F              _ADRESL 009E              _EEADRL 010D  
+            _EEDATA 010C              _CCPR1H 0016              _EEDATH 010E  
+            _CCPR1L 0015              _EECON1 018C              _EECON2 018D  
+      __end_of_main 004E           idloc_word 2000              _GODONE 00FA  
+            _INT0IE 005C              _INT0IF 0059              _CVRCON 009D  
+            _T1SYNC 0082              _INTEDG 040E              _PCLATH 000A  
+            _INTCON 000B              i1u1500 0140              i1u1501 013F  
+            i1u1510 014E              i1u1511 014D              i1u1520 0155  
+            i1u1521 0154              i1u1530 0161              i1u1531 0160  
+            i1u1540 0176              i1u1541 0175              i1u1550 017E  
+            i1u1551 017D              i1u1560 0195              i1u1561 0194  
+            i1u1490 0121              i1u1491 0120              _OSCCON 008F  
+            _TMR0IE 005D              _TMR0IF 005A              _TMR1IE 0460  
+            _TMR1IF 0060              _TMR1CS 0081              _TMR2IE 0461  
+            _TMR2IF 0061              _TMR1ON 0080              _OPTION 0081  
+            _TMR2ON 0092              _WDTCON 0105              _WDTPS0 0829  
+            _WDTPS1 082A              _WDTPS2 082B              _WDTPS3 082C  
+            _SSPADD 0093              _TRISA0 0428              _TRISA1 0429  
+            _TRISB0 0430              _TRISA2 042A              _TRISB1 0431  
+            _TRISA3 042B              _TRISB2 0432              _TRISA4 042C  
+            _TRISB3 0433              _TRISA5 042D              _TRISB4 0434  
+            _TRISA6 042E              _TRISB5 0435              _TRISA7 042F  
+            _TRISB6 0436              _TRISB7 0437              _STATUS 0003  
+     _led7_putui_ui 0024              _SSPCON 0014              _SSPBUF 0013  
+            _SWDTEN 0828              _i2cs_d 0074        ??_led7_putui 0026  
+            _font7s 010F              saved_w 007F          _i2cs_dummy 007B  
+        _i2cs_stage 007D           _i2cs_init 02EA   __end_of_i2cs_init 0305  
+         _i2cs_sync 02CF   __end_of_i2cs_sync 02EA          ?_i2cs_init 0022  
+          __Hcommon 007E          ?_i2cs_sync 0022           __Hrdata_0 0001  
+ _led7_dot_led7_dig 0024           __Hramdata 0001            __Lcommon 0074  
