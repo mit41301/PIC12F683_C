@@ -1,0 +1,102 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\pic\lcd-sdcard\SD-SPI.o
+Folder=Intermediary
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|i2cm.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|C:\Program Files\Microchip\MPLAB C30\support\PIC24F\gld\p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+[File001]
+Location=C:\pic\lcd-sdcard\lcd.o
+Folder=Intermediary
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|C:\Program Files\Microchip\MPLAB C30\support\PIC24F\gld\p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+[File002]
+Location=C:\pic\lcd-sdcard\FSIO.o
+Folder=Intermediary
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|i2cm.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|C:\Program Files\Microchip\MPLAB C30\support\PIC24F\gld\p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+[File003]
+Location=C:\pic\lcd-sdcard\rtc.o
+Folder=Intermediary
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|C:\Program Files\Microchip\MPLAB C30\support\PIC24F\gld\p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+[File004]
+Location=C:\pic\lcd-sdcard\sci.o
+Folder=Intermediary
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|C:\Program Files\Microchip\MPLAB C30\support\PIC24F\gld\p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+[File005]
+Location=C:\pic\lcd-sdcard\lcd-sdcard.o
+Folder=Intermediary
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+[File006]
+Location=lcd-sdcard.cof
+Folder=Output
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=--heap=128 -Map="$(TARGETBASE).map" -o"$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+[File007]
+Location=lcd-sdcard.hex
+Folder=Output
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C30\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C30\lib||$(LKRDIR)||
+SOLK=<src>|SD-SPI.c|lcd.c|FSIO.c|rtc.c|sci.c|lcd-sdcard.c||<obj>||<lib>||<lkr>|p24FJ64GA002.gld||
+SuiteArgsString=
+ToolArgsString=--heap=128 -Map="$(TARGETBASE).map" -o"$(TARGETBASE).$(TARGETSUFFIX)"
+TraceCmdString=
+[TOOL_LOC_STAMPS]
+tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
+tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=C:\Program Files\Microchip\MPLAB C30\bin\pic30-ld.exe
