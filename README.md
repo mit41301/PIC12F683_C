@@ -1,45 +1,7 @@
-プリント基板で作る
-PIC応用装置
-サポートページ
-公式ブログはこちら
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/df16abe8-1c55-4c73-856a-5afd4d997252" />
+
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/4e62e1b0-34ab-44d1-af73-42e70edc31d9" />
 
 
-【サプライ】
-パーツセット、追加プリント基板、プリント基板付き書籍は次の販売店様で店舗販売および通信販売しております。どうぞご利用ください。
-
-●株式会社若松通商様─http://www.wakamatsu.co.jp/
-●株式会社秋月電子通商様─http://akizukidenshi.com/
-●共立電子産業株式会社様─http://www.kyohritsu.com/
-●書店様─お取扱店は公式ブログでご案内いたします。
-(お取り扱い決定順)
-
-【正誤表】
-万が一、書籍に誤植や説明の誤りがありましたら次の公式ブログで順次ご報告します。ご意見ご要望もコメントしていただけます。
-
-●公式ブログ─http://piconpcb.blogspot.com/
-
-【ソフトウェア】
-書籍に掲載したプログラム一式を含むプロジェクトを配布します(すべて無償無保証です)。あわせて開発環境の入手先をご案内します。
-
-●開発環境
-統合開発環境─MPLAB IDE最新版ダウンロードページ
-統合開発環境─MPLAB IDE過去版アーカイブ
-Cコンパイラ─MPLAB C30最新版トップページ
-Cコンパイラ─HI-TECH C PRO最新版トップページ
-
-●プロジェクト
-赤外線解析リモコン─ir-remocon.zip
-温湿度計─tmp-hum.zip
-数値表示装置─7seg-led.zip
-テレビ表示装置─ntsc-video.zip
-情報収集装置─lcd-sdcard.zip
-数値表示装置をテストする情報収集装置のI2Cマスタ─i2cm-7seg.zip
-テレビ表示装置をテストする情報収集装置のI2Cマスタ─i2cm-tv.zip
-
-プロジェクトはMPLAB IDE v7.50で作成し、プロジェクトウィンドウを開いた状態で保存しています。MPLAB IDEの最新のバージョンではすべてのウィンドウが閉じた状態で起動しますが、メニューバーでView -> Projectを選択するとプロジェクトウィンドウが開きます。
- 
- ●関連ファイル
- シリアル受信プログラムcomGraph for Windows─comGraph.zip
- Visual C# 2008 Express Editionのプロジェクトです。PICのADコンバータの値をシリアル送信するとグラフ化して表示します。
 
  https://akizukidenshi.com/catalog/g/g103225/
